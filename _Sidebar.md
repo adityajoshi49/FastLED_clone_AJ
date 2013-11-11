@@ -3,6 +3,7 @@
   * [[Wiring LEDs]]
   * [[Basic Usage]]
   * [[Controlling LEDs]]
+  * [[Pixel Reference]]
   * [[High Performance Math]]
   * [[Low Level Access]]
 * [[Examples]]
