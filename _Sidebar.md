@@ -6,6 +6,7 @@
   * [[Pixel Reference]]
   * [[High Performance Math]]
   * [[Low Level Access]]
+  * [[Power Notes]]
 * [[Examples]]
   * [[RGB Calibration]]
 * [[API Reference]]
