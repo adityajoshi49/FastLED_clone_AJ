@@ -11,6 +11,7 @@ One of the new things the library has is a variety of "saturating" math function
 
 ## Example: adding two RGB colors 
 Say you wanted to 'add' the CRGB color value 'newTint' to an existing led's RGB values.  (Imagine that newTint is (100,50,0) . )   In the past you'd have to do the addition like this to make sure that adding the new values to the existing ones didn't cause 'overflow' beyond one byte:
+
 ```
     int newRed =   led[i].r + newTint.r;
     if( newRed   > 255 ) newRed = 255;
@@ -24,25 +25,31 @@ Say you wanted to 'add' the CRGB color value 'newTint' to an existing led's RGB 
     if( newBlue  > 255 ) newBlue = 255;
     leds[i].b = newBlue; 
 ```
+
 ## qadd8: eight-bit saturating addition 
 The V2 library provides a function that performs a 'saturating add' of two eight-bit numbers.  With eight-bit saturating addition, if the sum exceeds 255, it's automatically clamped to 255.  The 8-bit saturating add function is named qadd8( x, y).  So:
+
 ```
     // 100 + 100 = 200
     sum = qadd8( 100, 100); // --> 200
     
     // 200 + 200 = 255
     sum = qadd8( 200, 200); // --> saturated at 255
-``` 
+```
+
 This is extremely useful for adding R, G, and B channel values, because it automatically prevents overflow and wrap-around.  Using qadd8, the code required to add "CRGB newTint" to an existing led value now becomes simpler, with no "if"s:
+
 ```
     leds[i].r = qadd8( leds[i].r, newTint.r);
     leds[i].g = qadd8( leds[i].g, newTint.g);
     leds[i].b = qadd8( leds[i].b, newTint.b);
-``` 
+```
+
 Of course, since this 'adding the three led channel colors' case is exactly why we added this function, we also wrapped it up with a bow by added direct support for adding colors into the CRGB class.  So, in fact, you don't have to write any of the code shown above at all!  All you have to write now is this:
+
 ```
     leds[i] += newTint;
-``` 
+```
 ...and the library takes care adding the R, G, and B channels using quadd8's 8-bit saturating method.  You never have to worry about going past 255 or wrapping around!
 
 ## Performance 
@@ -58,7 +65,7 @@ One thing that you often want to do with numbers is scale them down.  The librar
 
 scales the 0-255 value down to a 0-100 value.  There's a variation on ```scale8``` called ```scale8_video``` which has the property that if the passed in value is non-zero, the returned value will be non-zero.  To account for the fact that these values are linear, while human perception is not, there's functions to adjust the dim/brightness of a value from the 0-255 value, linear, to a more perceptual range:
 
-``` 
+```
    val = dim8_raw(val);
    val = dim8_video(val);
    val = brighten8_raw(val);
@@ -87,7 +94,7 @@ Sometimes you want a random number, either 8 bit or 16 bit values.  The default 
      ease8InOutCubic(x) == 3(x^i) - 2(x^3)
      ease8InOutApprox(x) == 
        faster, rougher, approximation of cubic easing
-```     
+```
 
 Linear interpolation between two values, with the fraction between them expressed as an 8- or 16-bit fixed point fraction (fract8 or fract16).
 
