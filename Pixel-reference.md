@@ -1,4 +1,12 @@
-# CRGB Reference
+# Overview
+
+There's two main pixel types in the library - the CRGB class and the CHSV class.  CHSV objects have to be converted to CRGB objects before they can be written out.  You can also write CHSV objects into the CRGB array and have the translation occur as necessary.  
+
+* [CRGB Reference](#crgb)
+* [CHSV Object Reference](#chsv)
+* [Predefined Colors Reference](#colors)
+
+<h1 id="crgb">CRGB Reference</h1>
 
 <wiki:toc max_depth="3" />
 
@@ -85,7 +93,7 @@ If you are copying a large number of colors from one (part of an) array to anoth
 ```
 Performance-minded programmers using AVR/ATmega MCUs to move large number of colors in this way may wish to use the alternative "memmove8" library function, as it is measurably faster than the standard libc "memmove".
 
-## Setting HSV Colors 
+<h2 id="chsv">Setting HSV Colors </h2>
 
 ### Introduction to HSV 
 CRGB color objects use separate red, green, and blue channels internally to represent each composite color, as this is exactly the same way that multicolor LEDs do it: they have one red LED, one green LED, and one blue LED in each 'pixel'.  By mixing different amounts of red, green, and blue, thousands or millions of resultant colors can be displayed. 
@@ -112,7 +120,8 @@ Often in other HSV color spaces, hue is represented as an angle from 0-360 degre
 
 "value" is a one-byte value ranging from 0-255 representing brightness, where 255 means "completely bright, fully lit", 128 means "somewhat dimmed, only half-lit", and zero means "completely dark: black."
 
-### The CHSV Object 
+### The CHSV Object
+
 In the library, a CHSV object is used to represent a color in HSV color space.  The CHSV object has the three one-byte data members that you might expect:
  * hue (or 'h')
  * saturation (or 'sat', or just 's')
@@ -338,7 +347,7 @@ The library also provides functions for looking up the apparent (or mathematical
   uint8_t avgLight = leds[i].getAverageLight();
 ```
 
-# Predefined colors list
+<h2 id="colors">Predefined colors list</h2>
 | Color name|Hex Value|Example
 |-----------|---------|-------
 | CRGB::AliceBlue | 0xF0F8FF | <img src="http://www.colorcombos.com/images/colors/hex/F0F8FF.png"/>
