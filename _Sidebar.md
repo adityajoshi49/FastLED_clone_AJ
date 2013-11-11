@@ -7,5 +7,6 @@
   * [[High Performance Math]]
   * [[Low Level Access]]
 * [[Examples]]
+  * [[RGB Calibration]]
 * [[API Reference]]
 * [[Chipset Reference]]
