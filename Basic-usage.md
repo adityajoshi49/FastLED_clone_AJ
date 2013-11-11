@@ -82,3 +82,26 @@ Now the led is blinking.  That's all well and good, but there's 60 leds in our s
     }
 ```
 
+## Bringing in external controls
+
+Let's do something a little different.  Let's say you have a [potentiometer][pot] hooked up to your arduino on analog pin 2.  That gives a value from 0-1023.  What if we used the value from there to decide how many leds to have on?  We can use the arduino [map][ardmap] function to go from 0-1023 to 0-NUM_LEDS.  Here's what that loop function might look like:
+
+```
+    void loop() {
+        int val = analogRead(2);
+        int numLedsToLight = map(val, 0, 1023, 0, NUM_LEDS);
+
+        // First, clear the existing led values
+        FastLED.clear();
+        for(int led = 0; led < numLedsToLight; led++) { 
+            leds[led] = CRGB::Blue; 
+        }
+        FastLED.show();
+    }
+```
+
+Now you have something that will change the number of leds that are on based on what your knob is set to.
+
+
+[pot]: http://arduino.cc/en/tutorial/potentiometer
+[ardmap]: http://arduino.cc/en/Reference/map
