@@ -82,6 +82,7 @@ Sometimes you want a random number, either 8 bit or 16 bit values.  The default 
 <h1 id="easing">Easing and Linear Interpolation functions</h1>
 
  Fast 8-bit "easing in/out" function.
+
 ```
      ease8InOutCubic(x) == 3(x^i) - 2(x^3)
      ease8InOutApprox(x) == 
@@ -89,6 +90,7 @@ Sometimes you want a random number, either 8 bit or 16 bit values.  The default 
 ```     
 
 Linear interpolation between two values, with the fraction between them expressed as an 8- or 16-bit fixed point fraction (fract8 or fract16).
+
 ```
      lerp8by8(   fromU8, toU8, fract8 )
      lerp16by8(  fromU16, toU16, fract8 )
