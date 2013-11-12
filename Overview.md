@@ -80,7 +80,7 @@ How easy is the library to use?  Here's a quick example providing some blinking 
         void setup() { FastLED.addLeds<NEOPIXEL, 6>(leds, 1); }
         void loop() { 
                 leds[0] = CRGB::White; FastLED.show(); delay(30); 
-                leds[0] = CRGB::Black; FastLED.show(); delay30);
+                leds[0] = CRGB::Black; FastLED.show(); delay(30);
         }
 ```
 
