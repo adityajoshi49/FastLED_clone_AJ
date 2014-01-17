@@ -2,7 +2,7 @@ This documentation will walk your through the setup of a FastLED program, as wel
 
 ## Before you begin
 
-Before you begin working not he code, there's some things that you'll want to have and know.  The first is what LEDs are you using and how many of them will there be?  Next is what pin, or pins will you be putting the leds onto?  For purposes of our example here, let's say we're using Adafruit's Neopixels, and we have a strip of 60 of them, and we're going to use pin 6.
+Before you begin working on the code, there's some things that you'll want to have and know.  The first is what LEDs are you using and how many of them will there be?  Next is what pin, or pins will you be putting the leds onto?  For purposes of our example here, let's say we're using Adafruit's Neopixels, and we have a strip of 60 of them, and we're going to use pin 6.
 
 ## Setting up the leds
 
