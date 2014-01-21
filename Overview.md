@@ -21,9 +21,11 @@ SPI based chipsets are usually 4 wires - data, clock, power, and ground.  The ad
 * [LPD8806][ada8806] - a workhorse of an SPI based chipset, allows for high speed writing of data (we've pushed over 20Mbps to these chips!).
 * [WS2801][adaws2801] - a lower speed SPI based chipset, data rate is limited to 1Mbps, but they're cheap
 * SM16716 - another SPI based chipset, somewhat strange protocol.
+* [Total Control Lighting][coolneon] - Also known as P9813, this is an SPI chipset that is starting to see more use.  (Support for this library has been written, just needs testing, now!)
 
 [ada8806]: http://www.adafruit.com/products/306 
 [adaws2801]: http://www.adafruit.com/index.php?main_page=adasearch&q=ws2801
+[coolneon]: http://shopping.netsuite.com/s.nl/c.ACCT88394/sc.2/category.1665/.f
 
 <h4 id="3wirechipsets">3-Wire Chipsets</h4>
 
@@ -39,7 +41,6 @@ Three wire led pixels are becoming quite popular.  Having only data, ground, and
 
 Of course, progress always marches forward, and there's a variety of new led chipsets on the horizon for the library to support.  Here's a taste of what's coming:
 
-* [Total Control Lighting][coolneon] - Also known as P9813, this is an SPI chipset that is starting to see more use.  (Support for this library has been written, just needs testing, now!)
 * AS1130
 * TLC5940
 * TM1829 - a 3 wire chipset that also allows dynamically changing the base line power usage!
@@ -47,7 +48,6 @@ Of course, progress always marches forward, and there's a variety of new led chi
 * TM1812 
 * D3001/CY3001 - investigating this chipset.
 
-[coolneon]: http://shopping.netsuite.com/s.nl/c.ACCT88394/sc.2/category.1665/.f
 <h4 id="deprecated">Deprecated chipsets</h4>
 
 The older version of this library, FastSPI_LED, supported a number of chipsets that required work on the host MCU to manage PWM.  For a combination of reasons, including these chipsets going away, as well as a desire to get away from having the library rely on timer based code, those chipsets are no longer supported:
