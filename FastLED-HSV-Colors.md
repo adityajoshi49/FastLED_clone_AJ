@@ -8,9 +8,11 @@ Traditional computer HSV color models use a 'spectrum' color map, and FastLED do
 
 Here is the "Rainbow" color map that FastLED uses for everything by default:
 ![FastLED Rainbow color map](https://raw.github.com/FastLED/FastLED/gh-pages/images/HSV-rainbow-with-desc.jpg)
+[Click here for full-size chart.](https://raw.github.com/FastLED/FastLED/gh-pages/images/HSV-rainbow-with-desc.jpg)
 
 Here is the "Spectrum" color map that FastLED provides if you call hsv2rgb_spectrum explicitly:
 ![FastLED Spectrum color map](https://raw.github.com/FastLED/FastLED/gh-pages/images/HSV-spectrum-with-desc.jpg)
+[Click here for full-size chart.](https://raw.github.com/FastLED/FastLED/gh-pages/images/HSV-spectrum-with-desc.jpg)
 
 Wikipedia has some good discussion about spectrum-vs-rainbow here: http://en.wikipedia.org/wiki/Rainbow#Number_of_colours_in_spectrum_or_rainbow
 
