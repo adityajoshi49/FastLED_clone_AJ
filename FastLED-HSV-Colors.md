@@ -21,9 +21,9 @@ These charts show several things about each part of the color map:
  * The Red, Green, and Blue components of each color, shown below the color mix.
 
 ### Why FastLED full-range one-byte hues are faster
-Animations using FastLED HSV colors are often be much, _much_ faster than traditional HSV code, because FastLED HSV code has been designed explicitly for microcontroller environments where every byte and every cycle counts.  One of the big design decisions was to represent hue as a number from 0-255, rather than from 0-359; here's a code example of how the FastLED hue range design (from 0-255, vs 0-359) makes your animation code faster and more compact, just by keeping 'hue' down to a single one-byte number.
+Animations using FastLED HSV colors are often be much, _much_ faster than traditional HSV code, because FastLED HSV code has been designed explicitly for microcontroller environments where every byte and every cycle counts.  One of the big design decisions was to represent hue as a number from 0-255, rather than from 0-359 (or 0-95); here's a code example of how the FastLED hue range design (from 0-255) makes your animation code faster and more compact, just by keeping 'hue' down to a single full-range one-byte number.
 
-If 'hue' were to run from 0-359, as with traditional HSV ranges, here's what you'd have to do have a variable that cycles to a new hue each time through your main loop, stepping by an arbitrary amount each time, and wrapping around back to the start.  
+If 'hue' were to run from 0-359, as with traditional HSV ranges, here's roughly what you'd have to do have a variable that cycles to a new hue each time through your main loop, stepping by an arbitrary amount each time, and wrapping around back to the start.  
 
     uint16_t gHue = 0;
     uint8_t  gHueDelta = 3;
