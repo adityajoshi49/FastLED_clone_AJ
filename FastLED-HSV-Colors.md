@@ -1,5 +1,4 @@
-## FastLED HSV Colors
-The FastLED Hue-Saturation-Value color model differs from 'traditional' computer HSV color models in two important respects: first is differences in the numeric range of values used to represent colors, and second is in the distribution of colors themselves.
+The FastLED Hue-Saturation-Value color model differs from 'traditional' computer HSV color models in two important respects: first is differences in the numeric range of values used to represent colors (everything here is a one-byte value from 0-255), and second is in the distribution of colors themselves (FastLED defaults to using a 'rainbow' color map, instead of a traditional 'spectrum' color map).
 
 ### Numeric range differences: everything here is exactly one byte
 In 'traditional' computer HSV color models, hue is represented as a number (of degrees) from 0-360.  Saturation and value are often represented as numbers (percentages) from 0-100.  But neither "360" nor "100" is a particularly computer-native number, and there's no strong reason to use 'degrees' to represent hue, nor 'percentages' to represent saturation or value; they're all pretty much arbitrary scales.  Accordingly, to make your code smaller, faster, and more efficient, the FastLED library uses simple one-byte values (from 0-255) for hue, and for saturation, and for value.  The performance implications are discussed further below, but suffice it to say that it's faster this way.
@@ -7,7 +6,6 @@ In 'traditional' computer HSV color models, hue is represented as a number (of d
 ### Color distribution
 Traditional computer HSV color models use a 'spectrum' color map, and FastLED does offer an "hsv2rgb_spectrum" function.  However, by default FastLED uses a 'rainbow' color map instead of a spectrum. The 'rainbow' color map provides more evenly-spaced color bands, including a band of 'yellow' which is the same width as other colors, and has an appropriately high inherent brightness.  Traditional 'spectrum' HSV color maps have much narrower bands of yellow, and the yellow can also appear muddy.
 
- 
 ### Why one-byte FastLED hues are so much faster
 Animations using FastLED HSV colors are often be much, _much_ faster than traditional HSV code, because FastLED HSV code has been designed explicitly for microcontroller environments where every byte and every cycle counts.  One of the big design decisions was to represent hue as a number from 0-255, rather than from 0-359; here's a code example of how the FastLED hue range design (from 0-255, vs 0-359) makes your animation code faster and more compact, just by keeping 'hue' down to a single one-byte number.
 
