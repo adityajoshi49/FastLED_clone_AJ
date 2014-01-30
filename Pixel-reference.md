@@ -106,6 +106,10 @@ To simplify working with color in these ways, the library provides access to an 
  * Value is how 'bright' (versus dim) the color is
 
 In the library, the "hue" angle is represented as a one-byte value ranging from 0-255.  It runs from red to orange, to yellow, to green, to aqua, to blue, to purple, to pink, and back to red. Here are the eight cardinal points of the hue cycle in the library, and their corresponding hue angle. 
+
+![FastLED Rainbow color map](https://raw.github.com/FastLED/FastLED/gh-pages/images/HSV-rainbow-with-desc.jpg)
+[Click here for full-size chart.](https://raw.github.com/FastLED/FastLED/gh-pages/images/HSV-rainbow-with-desc.jpg)
+
  * Red (0..)
  * Orange (32..)
  * Yellow (64..)
@@ -114,7 +118,8 @@ In the library, the "hue" angle is represented as a one-byte value ranging from 
  * Blue (160..)
  * Purple (192..)
  * Pink(224..)
-Often in other HSV color spaces, hue is represented as an angle from 0-360 degrees.  But for compactness, efficiency, and speed, this library represents hue as a single-byte number from 0-255.
+
+Often in other HSV color spaces, hue is represented as an angle from 0-360 degrees.  But for compactness, efficiency, and speed, this library represents hue as a single-byte number from 0-255.  There's a full [wiki page how FastLED deals with HSV colors here](FastLED-HSV-Colors).
 
 "saturation" is a one-byte value ranging from 0-255, where 255 means "completely saturated, pure color", 128 means "half-saturated, a light, pale color", and 0 means "completely de-saturated: plain white".
 
@@ -162,7 +167,7 @@ There are two different HSV color spaces: "spectrum" and "rainbow", and they're 
  * "Spectra" have barely any real yellow in them; the yellow band is incredibly narrow.
  * "Rainbows" have a band of yellow approximately as wide as the 'orange' and 'green' bands around it; the yellow range is easy to see.
 
-All of the automatic color conversions in the library use the "HSV Rainbow" color space, but through use of explicit color conversion routines, you can select to use the "HSV Spectrum" color space.
+All of the automatic color conversions in the library use the "HSV Rainbow" color space, but through use of explicit color conversion routines, you can select to use the "HSV Spectrum" color space.  There's a full [wiki page how FastLED deals with HSV colors here](FastLED-HSV-Colors).
 
 The first explicit color conversion function is hsv2rgb_rainbow, which is used in the automatic color conversions:
 ```
@@ -173,7 +178,10 @@ The first explicit color conversion function is hsv2rgb_rainbow, which is used i
   // rgb will now be (0, 0, 255)  -- pure blue as RGB
 ```
 
-The HSV Spectrum color space has different cardinal points, and only six of them, which are correspondingly spread out further numerically:
+The HSV Spectrum color space has different cardinal points, and only six of them, which are correspondingly spread out further numerically.  Here is the "Spectrum" color map that FastLED provides if you call hsv2rgb_spectrum explicitly:
+![FastLED Spectrum color map](https://raw.github.com/FastLED/FastLED/gh-pages/images/HSV-spectrum-with-desc.jpg)
+[Click here for full-size chart.](https://raw.github.com/FastLED/FastLED/gh-pages/images/HSV-spectrum-with-desc.jpg)
+
  * Red (0..)
  * Yellow (42..)
  * Green (85..)
