@@ -4,6 +4,7 @@
   * [[Basic Usage]]
   * [[Controlling LEDs]]
   * [[Pixel Reference]]
+  * [[FastLED HSV Colors]]
   * [[High Performance Math]]
   * [[Low Level Access]]
   * [[Power Notes]]
