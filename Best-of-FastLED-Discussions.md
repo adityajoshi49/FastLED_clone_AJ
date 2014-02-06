@@ -1,4 +1,5 @@
-There's a good discussion forum for FastLED on Google Plus: https://plus.google.com/communities/109127054924227823508  The FastLED developers are active participants, as are a growing number expert users.
+There's a good discussion forum for FastLED on Google Plus: https://plus.google.com/communities/109127054924227823508  
+The FastLED developers are active participants, as are a growing number expert users.
 
 This page collects up a few links to some of the most useful, most helpful, most interesting, or simply most lengthy discussions that have taken place over there.
 
