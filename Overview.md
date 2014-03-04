@@ -62,7 +62,7 @@ One of the goals of this version of the library is to lay the groundwork for mak
 
 * [Arduino][ardprods] - Pretty much all the official arduino platforms should be supported at this point.  (Please, file a ticket if you come across one that isn't!).  
 * [Adafruit Flora/Gemma][adaflora] & [Trinket][adatrinket] - ATtiny based chipsets for wearable projects
-* [PJRC Teensy 2 & 3][pjrcteensy] - avr and arm based project boards from PJRC, arduino comparable, but with a variety of extra goodies on them.  The teensy3 is one of our favorite boards to dev against!
+* [PJRC Teensy 2 & 3][pjrcteensy] - avr and arm based project boards from PJRC, arduino comparable, but with a variety of extra goodies on them.  The teensy3 is one of our favorite boards to dev against!  The teensy 3.1 is supported on the FastLED2.1 branch (currently under dev but available to pull down from here!)
 
 [ardprods]: http://arduino.cc/en/Main/Products
 [adaflora]: http://www.adafruit.com/category/92
