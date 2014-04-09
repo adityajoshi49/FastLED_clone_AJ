@@ -1,4 +1,4 @@
-The green LEDs in your LED pixels shine much more brightly than the red or blue LEDs; this means that any color you try to mix is inherently 'too green' unless you correct for that somehow.   Well, FastLED v2.1 now has new features that let you control the overall color balance and temperature of your projects, so that you get exactly the colors you wanted.
+The green LEDs in your LED pixels shine much more brightly than the red or blue LEDs; this means that any color you try to mix is inherently 'too green' unless you correct for that somehow.   FastLED v2.1 (and later) have features that let you control the overall color balance and temperature of your projects, so that you get exactly the colors you wanted.
   
 ![](images/FastLEDColorCorrection.jpg)
 
