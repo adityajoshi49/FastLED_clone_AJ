@@ -110,14 +110,14 @@ In the library, the "hue" angle is represented as a one-byte value ranging from 
 ![FastLED Rainbow color map](https://raw.github.com/FastLED/FastLED/gh-pages/images/HSV-rainbow-with-desc.jpg)
 [Click here for full-size chart.](https://raw.github.com/FastLED/FastLED/gh-pages/images/HSV-rainbow-with-desc.jpg)
 
- * Red (0..)
- * Orange (32..)
- * Yellow (64..)
- * Green (96..)
- * Aqua (128..)
- * Blue (160..)
- * Purple (192..)
- * Pink(224..)
+ * Red (0..) "HUE_RED"
+ * Orange (32..) "HUE_ORANGE"
+ * Yellow (64..) "HUE_YELLOW"
+ * Green (96..) "HUE_GREEN"
+ * Aqua (128..) "HUE_AQUA"
+ * Blue (160..) "HUE_BLUE"
+ * Purple (192..) "HUE_PURPLE"
+ * Pink(224..) "HUE_PINK"
 
 Often in other HSV color spaces, hue is represented as an angle from 0-360 degrees.  But for compactness, efficiency, and speed, this library represents hue as a single-byte number from 0-255.  There's a full [wiki page how FastLED deals with HSV colors here](FastLED-HSV-Colors).
 
