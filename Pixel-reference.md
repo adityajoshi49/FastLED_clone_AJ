@@ -11,8 +11,8 @@ There's two main pixel types in the library - the CRGB class and the CHSV class.
 <wiki:toc max_depth="3" />
 
 A "CRGB" is an object representing a color in RGB color space.  It contains simply:
- * a one byte value (0-255) representing the amount of red, 
- * a one byte value (0-255) representing the amount of green, 
+ * a one byte value (0-255) representing the amount of red,
+ * a one byte value (0-255) representing the amount of green,
  * a one byte value (0-255) representing the amount of blue
 in a given color.  
 
@@ -50,7 +50,7 @@ You are welcome, and invited, to directly access the underlying memory of this o
 
 The CRGB object "is trivially copyable", meaning that it can be copied from one place in memory to another and still function normally.
 
-# Methods 
+# Methods
 
 In addition to simply providing data storage for the RGB colors of each LED pixel, the CRGB class also provides several useful methods color-manipulation, some of which are implemented in assembly language for speed and compactness.  Often using the class methods described here is faster and smaller than hand-written C/C++ code to achieve the same thing.
 
@@ -79,7 +79,7 @@ Here are the other high-level ways to set a CRGB color in one step:
   // Example 5: set color via setRGB
   leds[i].setRGB( 50, 100, 150);
 ```
-Again, for the performance-minded programmer, it's worth noting that all of the examples above compile down into exactly the same number of machine instructions.  Choose the method that makes your code the simplest, most clear, and easiest to read and modify. 
+Again, for the performance-minded programmer, it's worth noting that all of the examples above compile down into exactly the same number of machine instructions.  Choose the method that makes your code the simplest, most clear, and easiest to read and modify.
 
 Colors can also be copied from one CRGB to another:
 ```
@@ -95,8 +95,8 @@ Performance-minded programmers using AVR/ATmega MCUs to move large number of col
 
 <h2 id="chsv">Setting HSV Colors </h2>
 
-### Introduction to HSV 
-CRGB color objects use separate red, green, and blue channels internally to represent each composite color, as this is exactly the same way that multicolor LEDs do it: they have one red LED, one green LED, and one blue LED in each 'pixel'.  By mixing different amounts of red, green, and blue, thousands or millions of resultant colors can be displayed. 
+### Introduction to HSV
+CRGB color objects use separate red, green, and blue channels internally to represent each composite color, as this is exactly the same way that multicolor LEDs do it: they have one red LED, one green LED, and one blue LED in each 'pixel'.  By mixing different amounts of red, green, and blue, thousands or millions of resultant colors can be displayed.
 
 However, working with raw RGB values in your code can be awkward in some cases.  For example, it is difficult to work express different tints and shades of a single color using just RGB values, and it can be particular daunting to describe a 'color wash' in RGB that cycles around a rainbow of hues while keeping a constant brightness.
 
@@ -105,7 +105,7 @@ To simplify working with color in these ways, the library provides access to an 
  * Saturation is how 'rich' (versus pale) the color is
  * Value is how 'bright' (versus dim) the color is
 
-In the library, the "hue" angle is represented as a one-byte value ranging from 0-255.  It runs from red to orange, to yellow, to green, to aqua, to blue, to purple, to pink, and back to red. Here are the eight cardinal points of the hue cycle in the library, and their corresponding hue angle. 
+In the library, the "hue" angle is represented as a one-byte value ranging from 0-255.  It runs from red to orange, to yellow, to green, to aqua, to blue, to purple, to pink, and back to red. Here are the eight cardinal points of the hue cycle in the library, and their corresponding hue angle.
 
 ![FastLED Rainbow color map](https://raw.github.com/FastLED/FastLED/gh-pages/images/HSV-rainbow-with-desc.jpg)
 [Click here for full-size chart.](https://raw.github.com/FastLED/FastLED/gh-pages/images/HSV-rainbow-with-desc.jpg)
@@ -136,7 +136,7 @@ These can be directly manipulated in the same way that red, green, and blue can 
 ```
   // Set up a CHSV color
   CHSV paleBlue( 160, 128, 255);
-  
+
   // Now...
   //   paleBlue.hue == 160
   //   paleBlue.sat == 128
@@ -149,19 +149,19 @@ The library provides fast, efficient methods for converting a CHSV color into a 
 For example, to set an led to a color specified in HSV, you can simply assign a CHSV color to a CRGB color:
 ```
   // Set color from Hue, Saturation, and Value.  
-  // Conversion to RGB is automatic. 
+  // Conversion to RGB is automatic.
   leds[i] = CHSV( 160, 255, 255);
-  
+
   // alternate syntax
   leds[i].setHSV( 160, 255, 255);
-  
+
   // set color to a pure, bright, fully saturated, hue
   leds[i].setHue( 160);
 ```
 
 There is no conversion back from CRGB to CHSV provided with the library at this point.
 
-### Explicit Color Conversion 
+### Explicit Color Conversion
 
 There are two different HSV color spaces: "spectrum" and "rainbow", and they're not exactly the same thing.  Wikipedia has a good discussion here http://en.wikipedia.org/wiki/Rainbow#Number_of_colours_in_spectrum_or_rainbow but for purposes of the library, it can be summed up as follows:
  * "Spectra" have barely any real yellow in them; the yellow band is incredibly narrow.
@@ -210,7 +210,7 @@ Both color space conversion functions can also convert an array of CHSV colors t
 ```
 The function "hsv2rgb_spectrum" can also be called this way for bulk conversions.
 
-## Comparing Colors 
+## Comparing Colors
 
 CRGB colors can be compared for exact matches using == and !=.
 
@@ -219,14 +219,14 @@ CRGB colors can be compared for relative light levels using <, >, <=, and =>.  N
 Often it is useful to check if a color is completely 'black', or if it is 'lit' at all.  You can do this by testing the color directly with 'if', or using it in any other boolean context.
 ```
   // Test if a color is lit at all (versus pure black)
-  if( leds[i] ) { 
-    /* it is somewhat lit (not pure black) */ 
+  if( leds[i] ) {
+    /* it is somewhat lit (not pure black) */
   } else {
     /* it is completely black */
   }
 ```
 
-## Color Math 
+## Color Math
 
 The library supports a rich set of 'color math' operations that you can perform on one or more colors.  For example, if you wanted to add a little bit of red to an existing LED color, you could do this:
 ```
@@ -246,7 +246,7 @@ If you've ever done this sort of thing by hand before, you may notice something 
 ```
 This kind of add-and-then-check-and-then-adjust-if-needed logic is taken care of for you inside the library code for adding two CRGB colors, inside operator+ and operator+=.  Furthermore, much of this logic is implemented directly in assembly language and is substantially smaller and faster than the corresponding C/C++ code.  The net result is that you no longer have to do all the checking yourself, and your program runs faster, too.  
 
-These 'color math' operations are part of what makes the library fast: it lets you develop your code faster, as well as executing it faster. 
+These 'color math' operations are part of what makes the library fast: it lets you develop your code faster, as well as executing it faster.
 
 All of the math operations defined on the CRGB colors are automatically protected from wrap-around, overflow, and underflow.
 
@@ -254,20 +254,20 @@ All of the math operations defined on the CRGB colors are automatically protecte
 ```
   // Add one CRGB color to another.
   leds[i] += CRGB( 20, 0, 0);
-    
+
   // Add a constant amount of brightness to all three (RGB) channels.
   leds[i] += 20;
-  
+
   // Add a constant "1" to the brightness of all three (RGB) channels.
   leds[i]++;
-  
-  
+
+
   // Subtract one color from another.
   leds[i] -= CRGB( 20, 0, 0);
-  
+
   // Subtract a contsant amount of brightness from all three (RGB) channels.
   leds[i] -= 20;
-  
+
   // Subtract a constant "1" from the brightness of all three (RGB) channels.
   leds[i]--;
 ```
@@ -280,7 +280,7 @@ Colors are always dimmed down by a fraction.  The dimming fraction is expressed 
 ```
   // Dim a color by 25% (64/256ths)
   // using "video" scaling, meaning: never fading to full black
-  leds[i].fadeLightBy( 64 ); 
+  leds[i].fadeLightBy( 64 );
 ```
 
 You can also express this the other way: that you want to dim the pixel to 75% of its current brightness.   75% = 192/256.  There are two ways to write this, both of which will do the same thing.  The first uses the %= operator; the rationale here is that you're setting the new color to "a percentage" of its previous value:
@@ -300,7 +300,7 @@ If you want the color to eventually fade all the way to black, use one of these 
 ```
   // Dim a color by 25% (64/256ths)
   // eventually fading to full black
-  leds[i].fadeToBlackBy( 64 ); 
+  leds[i].fadeToBlackBy( 64 );
 
   // Reduce color to 75% (192/256ths) of its previous value
   // eventually fading to full black
@@ -317,13 +317,13 @@ Finally, colors can also be scaled up or down using multiplication and division.
 ```
   // Divide each channel by a single value
   leds[i] /= 2;
-    
+
   // Multiply each channel by a single value
   leds[i] *= 2;
 ```
 
-### Constraining Colors Within Limits 
-The library provides a function that lets you 'clamp' each of the RGB channels to be within given minimums and maximums.  You can force all of the color channels to be at least a given value, or at most a given value.  These can then be combined to limit both minimum and maximum. 
+### Constraining Colors Within Limits
+The library provides a function that lets you 'clamp' each of the RGB channels to be within given minimums and maximums.  You can force all of the color channels to be at least a given value, or at most a given value.  These can then be combined to limit both minimum and maximum.
 ```
   // Bring each channel up to at least a minimum value.  If any channel's
   // value is lower than the given minimum for that channel, it is
@@ -331,17 +331,17 @@ The library provides a function that lets you 'clamp' each of the RGB channels t
   // for each channel (as a CRGB), or as a single value.
   leds[i] |= CRGB( 32, 48, 64);
   leds[i] |= 96;
-  
-  
+
+
   // Clamp each channel down to a maximum value.  If any channel's
   // value is higher than the given maximum for that channel, it is
   // reduced to the given maximum.  The minimum can be specified separately
   // for each channel (as a CRGB), or as a single value.
   leds[i] &= CRGB( 192, 128, 192);
   leds[i] &= 160;
-  
+
 ```
-### Misc Color Functions 
+### Misc Color Functions
 The library provides a function that 'inverts' each RGB channel.  Performing this operation twice results in the same color you started with.
 ```
   // Invert each channel
@@ -349,13 +349,17 @@ The library provides a function that 'inverts' each RGB channel.  Performing thi
 ```
 The library also provides functions for looking up the apparent (or mathematical) brightness of a color.
 ```
-  // Get brightness, or luma (brightness, adjusted for eye's sensitivity to 
+  // Get brightness, or luma (brightness, adjusted for eye's sensitivity to
   // different light colors.   See http://en.wikipedia.org/wiki/Luma_(video) )
   uint8_t luma = leds[i].getLuma();
   uint8_t avgLight = leds[i].getAverageLight();
 ```
 
-<h2 id="colors">Predefined colors list</h2>
+### Predefined colors list
+
+***Please note*** - these predefined colors are defined using the W3C RGB definitions.  These definitions are designed with RGB monitors in mind, not RGB leds, and so the colors that you get on LED strips may be a bit different than you're expecting.  In our experience, the colors are often too pale, or washed out (overly-desaturated).
+
+
 | Color name|Hex Value|Example
 |-----------|---------|-------
 | CRGB::AliceBlue | 0xF0F8FF | <img src="http://www.colorcombos.com/images/colors/hex/F0F8FF.png"/>
