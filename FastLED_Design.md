@@ -1,6 +1,6 @@
 # The design of FastLED
 
-This is an attempt to document the high level design of the FastLED library, and give some insight to some of the design ideas that went into how everything works and is laid out.  In the future there will be more articles that drill down into the code specifics of how we get some of the performance and features that we do. 
+This is an attempt to document the high level design of the FastLED library, and give some insight to some of the design ideas that went into how everything works and is laid out.  In the future there will be more articles that drill down into the code specifics of how we get some of the performance and features that we do.
 
 ## Goals
 
@@ -10,7 +10,7 @@ All of the goals  can be wrapped up in one singular meta-goal, to enable people 
 
 ### Fast as a goal
 
-There's multiple meanings for the idea of fast as a goal, and the library tries to hit all of them.  There's "How quickly can someone new to LEDs get up and running with making LEDs do their bidding?", there's "How quickly can the library do it's work", or alternatively, "How much CPU time does the library leave available for the led programmer to spend on their led/animation code?"   
+There's multiple meanings for the idea of fast as a goal, and the library tries to hit all of them.  There's "How quickly can someone new to LEDs get up and running with making LEDs do their bidding?", there's "How quickly can the library do it's work", or alternatively, "How much CPU time does the library leave available for the led programmer to spend on their led/animation code?"
 
 Sometimes these two subgoals can be at odds with each other.  The fastest possible way to do things may not be the most straightforward or intuitive for a new user to do.  Sometimes, the easiest way to present/do things is, conversely, not the highest performing way to dothings.
 
@@ -44,17 +44,17 @@ The second object is FastLED itself.  This is a controller.  For each LED 'thing
 
 The first place the user will come across this object is in the setup method, when they're setting up their LEDs:
 
-'''
+```
 void setup() {
 	FastLED.addLeds<NEOPIXEL,6>(leds, NUM_LEDS);
 }
-'''
+```
 
 and the second place will be with regular calls to the show method, which tells FastLED to push the data in leds out to the led strips:
 
-'''
+```
 void loop() { FastLED.show();}
-'''
+```
 
 When you call show, the FastLED object will loop over all the sets of leds that you have added to itt, and call show on each set of leds, with the appropriate set of leds and other necessary options.  FastLED also provides methods for globally setting the brightness, color correction information, whether or not to use dithering.  Finally, the high level FastLED object provides some methods for filling your leds in fun ways, to get a bit of a kickstart to what you're doing.
 
@@ -72,8 +72,6 @@ There will be other pages/documents in the wiki that will describe in much more 
 
 From the very first implementation, low level, direct access to the underlying hardware has defined the library.  From SPI controller classes that directly interface with control registers and optimize ordering of loading data to fast Pin access classes that, on some platforms turn pin access into a one clock cycle operation.  
 
-The SPI classes live in sort of two spaces.  On the level just above,they provide methods and interfaces that optimize writing led data out and performing the various in stream data manipulations that we do. On the lower level, they are all about direct access to the SPI registers, making aggressive use of method inlining to get the fastest access to the SPI system going. 
+The SPI classes live in sort of two spaces.  On the level just above,they provide methods and interfaces that optimize writing led data out and performing the various in stream data manipulations that we do. On the lower level, they are all about direct access to the SPI registers, making aggressive use of method inlining to get the fastest access to the SPI system going.
 
 The FastPin class is a template that takes advantage of the fact that, for most people, the pins being used are known at compile time, and using that information, we can flatten pin access down to direct manipulation of the gpio registers.  When you are trying to push data out as fast as you can, the fastest pin access possible is a good thing to have!
-
-
