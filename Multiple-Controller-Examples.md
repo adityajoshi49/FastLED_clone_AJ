@@ -23,7 +23,7 @@ Mirroring strips is prettty straight forward.  All you do is tell FastLED what s
 
 The first thing that we'll do in our code is set up our led data:
 
-```
+```C++
 #include "FastLED.h"
 #define NUM_LEDS_PER_STRIP 60
 CRGB leds[NUM_LEDS_PER_STRIP];
@@ -33,7 +33,7 @@ This is going to be the array of our led data.
 
 Next, we need to actually tell FastLED what led strips we have, and on what pins:
 
-```
+```C++
 void setup() {
   FastLED.addLeds<NEOPIXEL, 4>(leds, NUM_LEDS_PER_STRIP);
   FastLED.addLeds<NEOPIXEL, 5>(leds, NUM_LEDS_PER_STRIP);
@@ -46,7 +46,7 @@ Each call to FastLED.addLeds tells the library about your leds.  In the code abo
 
 Now, there's nothing special to do in the rest of your code.  If you want a simple moving dot, you can just do:
 
-```
+```C++
 void loop() {
   for(int i = 0; i < NUM_LEDS_PER_STRIP; i++) {
     leds[i] = CRGB::Red;    // set our current dot to red
@@ -64,7 +64,7 @@ Multiple led arrays
 
 Of course, sometimes you may want your different strips to do different things.  For this example, there's say there's three led strips, on pins 10, 11 and 12.  You want a moving dot again, but this time, you want the first strip to have a red dot, the second strip to have a green dot, and the third strip to have a blue dot.  This time, instead of one CRGB array named leds, we're going to make three, helpfully named for what we're doing (this example is in Examples, under Multiple/MultiArrays):
 
-```
+```C++
 #include "FastLED.h"
 #define NUM_LEDS_PER_STRIP 60
 CRGB redLeds[NUM_LEDS_PER_STRIP];
@@ -74,7 +74,7 @@ CRGB blueLeds[NUM_LEDS_PER_STRIP];
 
 Our setup function looks a little bit like the one above did, however this time we're pointing each strip at a different led array:
 
-```
+```C++
 void setup() {
   FastLED.addLeds<NEOPIXEL, 10>(redLeds, NUM_LEDS_PER_STRIP);
   FastLED.addLeds<NEOPIXEL, 11>(greenLeds, NUM_LEDS_PER_STRIP);
@@ -85,7 +85,7 @@ void setup() {
 
 Now, this time, since we have three sets of led data, in our loop function we're going to need to write what we want into each array separately:
 
-```
+```C++
 void loop() {
   for(int i = 0; i < NUM_LEDS_PER_STRIP; i++) {
     // set our current dot to red, green, and blue
@@ -109,7 +109,7 @@ Array of led arrays
 
 Now let's get a little fancier.  In order to make a dot that moves from one led strip to the next using the example above, you'd have to have some really ugly code to "pick" the current strip you were writing to.  Or a lot of duplicated code.  That's never any fun.  Instead, here's a technique for using an array of arrays.  Where before you had individual CRGB arrays of leds, now you have an array of CRGB arrays of leds (this example is in Examples, under Multiple/ArrayOfLedArrays):
 
-```
+```C++
 #include "FastLED.h"
 #define NUM_STRIPS 3
 #define NUM_LEDS_PER_STRIP 60
@@ -118,7 +118,7 @@ CRGB leds[NUM_STRIPS][NUM_LEDS_PER_STRIP];
 
 This has set up a two dimensional array.  If you want to access the first led on the first strip, you would use ```leds[0][0]```.  If you wanted to access the third led on the second strip, you would use ```leds[1][2]``` and so.  Setup looks mostly the same, except now we have to tell it which array to use for each strip:
 
-```
+```C++
 void setup() {
   FastLED.addLeds<NEOPIXEL, 10>(leds[0], NUM_LEDS_PER_STRIP);
   FastLED.addLeds<NEOPIXEL, 11>(leds[1], NUM_LEDS_PER_STRIP);
@@ -129,7 +129,7 @@ void setup() {
 
 Now, in the loop, instead of just looping over the leds, we can also loop over the strips.  This code will generate a dot that moves down the first strip, then the second strip, and finally the third strip:
 
-```
+```C++
 void loop() {
   // This outer loop will go over each strip, one at a time
   for(int x = 0; x < NUM_STRIPS; x++) {
@@ -149,7 +149,7 @@ One array, many strips
 
 Maybe you don't want an array of arrays.  Maybe you have patterns that just want one single array with all the leds, and let the library figure out where in that array the data for each strip is.  Once again, we setup our led data (this example is in Multiple/MuiltipleStripsInOneArray):
 
-```
+```C++
 #include "FastLED.h"
 
 #define NUM_STRIPS 3
@@ -161,7 +161,7 @@ CRGB leds[NUM_STRIPS * NUM_LEDS_PER_STRIP];
 
 Notice this time, we still have only one led array, but this time it is large enough to contain information on all the leds in all the strips (180 leds in total).  We'll also be using a slightly modified version of the addLeds method.  This method takes 3 arguments, the led array, an offset into that array (think of this as where the strip being added starts in the array), and how many leds there are.  So, in the example below, the strip on pin 10 starts at offset 0 and has 60 leds, the strip on pin 11 starts at offset 60 and also has 60 leds, and finally, the strip on pin 12 starts at offset 120 and also has 60 leds.
 
-```
+```C++
 void setup() {
   // tell FastLED there's 60 NEOPIXEL leds on pin 10, starting at index 0 in the led array
   FastLED.addLeds<NEOPIXEL, 10>(leds, 0, NUM_LEDS_PER_STRIP);
@@ -177,7 +177,7 @@ void setup() {
 
 Now, take a look at the loop method.  We're still moving a dot down each strip, one strpi at a time - but there's only one loop, going over all the leds:
 
-```
+```C++
 void loop() {
   for(int i = 0; i < NUM_LEDS; i++) {
     leds[i] = CRGB::Red;
