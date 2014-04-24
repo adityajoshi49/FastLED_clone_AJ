@@ -10,5 +10,6 @@
   * [[Power Notes]]
 * [[Examples]]
   * [[RGB Calibration]]
+  * [[Multiple Controller Examples]]
 * [[API Reference]]
 * [[Chipset Reference]]
