@@ -12,11 +12,14 @@ Here's a list of the chipsets that are currently supported by the library as wel
 * tm1809/1804 - similar in protocol to the ws8211, similar cost benefit when it was out, 1 IC per 3 rgb leds, seems to be a lot twiticher re: line interference (the 1809 controls 3 rgb pixels, the 1804 controls 1)
 * tm1803 - slower speed version of the tm1809, sold primarily by radio shack 
 
-### Weird shit
+### Other stuff
 
 * UCS1903 - similar to tm1809/ws2811.  Not sure why this exists, honestly.  Very very slow protocol, closer to 400kbps.
-* SM16716 - implemented because a couple people asked for it.  Terrible protocol.  
+* SM16716 - implemented because a couple people asked for it.  Terrible protocol.
+* GW6205 - someone asked for these, I haven't ever seen them in person!
+* LPD1886 - a 3 wire chipset that is 12-bits per pixel instead of the usually 7/8-bit per pixel most of the other chipsets seen are so far
 * DMX controllers - if your'e controlling your leds using DMX from an arduino, this will drive DMX using the rest of the led library
+* APA102 - I need to do more work with this one, but this may become the goto chip over the WS2811!
 
 ### Upcoming
 
@@ -24,10 +27,8 @@ Here's a list of the chipsets that are currently supported by the library as wel
 
 * TM1829 - similar to the TM1809/WS2811, but also allows setting 32 base current levels for brightness/power usage control - i have a set of these, but the code for them doesn't work yet
 * TLS3001 - I get a lot of requests for this one.  Unsure what benefits it provides, but among other things it's 12-bits per color vs. 8-bit for most of the currently supported chipsets.
-* APA102 - I don't remember much about this one, other than I have a sample that I was asked to implement support for
 * TI TLC5940 - this is a heavy hitter - also 12 bit color, led color correction support, 16 led channels per chip - i've heard of people doing RGBW with setups like this.﻿
 * TI TLC5947 like above, but with 24 channels
-* LPD1886 - another 12-bit-capable driver chip, which unlike the LPD8806, appears to be internally clocked (i.e., the LPD8806 uses real "SPI", but this chip does not).  Although it doesn't offer software color correction, it does drive the red channel 1.5ma higher than the green and blue channels, which helps compensate.
 
 Here's a chart listing the various chipsets and pieces of data that we know about them at the moment.  Chipset power draw is how much power a single chip draws when the leds are off, but power is connected:
 
