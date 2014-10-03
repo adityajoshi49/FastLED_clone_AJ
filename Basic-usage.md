@@ -62,7 +62,7 @@ You can change the value that you set to an led between calls to show, and the n
       // Set the first led back to black for 1 second
       leds[0] = CRGB::Black;
       FastLED.show();
-      delay(1000:
+      delay(1000):
     }
 ```
 
