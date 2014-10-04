@@ -22,7 +22,7 @@ SPI based chipsets are usually 4 wires - data, clock, power, and ground.  The ad
 * [WS2801][adaws2801] - a lower speed SPI based chipset, data rate is limited to 1Mbps, but they're cheap
 * SM16716 - another SPI based chipset, somewhat strange protocol.
 * [Total Control Lighting][coolneon] - Also known as P9813, this is an SPI chipset that is starting to see more use.  (Support for this library has been written, just needs testing, now!)
-* APA102 - another SPI based chipset, looks promising, packaging similar to the WS2812, but potentially much higher data rates
+* APA102 - another SPI based chipset, looks promising, packaging similar to the WS2812, but potentially much higher data rates (w/FastLED2.1)
 
 [ada8806]: http://www.adafruit.com/products/306 
 [adaws2801]: http://www.adafruit.com/index.php?main_page=adasearch&q=ws2801
@@ -36,8 +36,8 @@ Three wire led pixels are becoming quite popular.  Having only data, ground, and
 * TM1809/TM1804 - A common chipset for a while on aliexpress, has a similar protocol to the WS2811 and friends.
 * TM1803 - Sold by radio shack
 * UCS1903/UCS1903B - Another 3 wire chipset, slower data protocol than the others, which were already slow.  Not terribly common.
-* GW6205
-* LPD1886 - a 3 wire chipset that is 12-bits per pixel instead of the usually 7/8-bit per pixel most of the other chipsets seen are so far
+* GW6205 (w/FastLED2.1)
+* LPD1886 - a 3 wire chipset that is 12-bits per pixel instead of the usually 7/8-bit per pixel most of the other chipsets seen are so far (w/FastLED2.1)
 
 [adaneopixel]: http://www.adafruit.com/category/168
 <h4 id="notyetchipsets">Not yet supported</h4>
@@ -62,9 +62,9 @@ The older version of this library, FastSPI_LED, supported a number of chipsets t
 
 One of the goals of this version of the library is to lay the groundwork for making it more easily portable to a wide variety of platforms.  At the moment, the library has only been tested and is known to work with AVR and ARM based MCUs that are nominally arduino-compatable.  Namely, if the code is built/pushed using some variation of the Arduino application with stock compilers, the library should work.  Future versions of the library will support a wider range of platforms and compilers.  
 
-* [Arduino][ardprods] - Pretty much all the official arduino platforms should be supported at this point, including the Due.
+* [Arduino][ardprods] - Pretty much all the official arduino platforms should be supported at this point, including the Due (as of FastLED2.1).
 * [Adafruit Flora/Gemma][adaflora] & [Trinket][adatrinket] - ATtiny based chipsets for wearable projects
-* [PJRC Teensy 2 & 3][pjrcteensy] - avr and arm based project boards from PJRC, arduino comparable, but with a variety of extra goodies on them.  The teensy3 and teensy 3.1 is one of our favorite boards to dev against!  
+* [PJRC Teensy 2 & 3][pjrcteensy] - avr and arm based project boards from PJRC, arduino comparable, but with a variety of extra goodies on them.  The teensy3 and teensy 3.1 is one of our favorite boards to dev against! The Teensy 3.1 is supported as of FastLED2.1 (currently still branched) 
 
 
 [ardprods]: http://arduino.cc/en/Main/Products
