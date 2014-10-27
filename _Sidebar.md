@@ -19,3 +19,5 @@
   * [[Best of FastLED Discussions]]
 * [[API Reference]]
 * [[Chipset Reference]]
+* Releases
+  * [[FastLED-3.0 announcement]] - [3.0 release page](https://github.com/FastLED/FastLED/releases/tag/v3.0.0)
