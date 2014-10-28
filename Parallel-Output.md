@@ -32,7 +32,3 @@ A comparison of CPU timings, for writing out 512 leds:
 * 512 leds on 8 pins, w/FastLED3.1 parallel output: 1900µs or 526fps max
 * 512 leds on 8 pins, w/FastLED3.1 feeding OctoWS2811: 500µs or 2000fps max (sadly, WS2811's get unhappy if you go above 400-500fps)
 
-## The future
-
-Why stop at 8?  Future revisions of FastLED3.1 will add 12, 20, and 30 way output as well for all your parallel led driving needs.  Also, we're not going to stop with parallelizing the WS2812...
-
