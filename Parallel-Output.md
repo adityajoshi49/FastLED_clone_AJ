@@ -12,7 +12,7 @@ If you are using a due or a digix or a teensy 3 or a teensy 3.1, FastLED now has
 On the teensy 3 and 3.1 there's two sets of leds that we can use for parallel output, described below:
 
 * WS2811_PORTD - the OctoWS2811 pins - 2,14,7,8,6,20,21,5
-* WS2811_PORTC - pins 15,22,23,9,10,13,11,12
+* WS2811_PORTC - pins 15,22,23,9,10,13,11,12,28,27,29,30 (yes, 12 pins!  If you're willing to solder onto pads on the back of the teensy)
 
 On the due/digix (note: some pins aren't available on the due, which means anything you write to that block of led data will just disappear):
 
