@@ -62,7 +62,7 @@ The older version of this library, FastSPI_LED, supported a number of chipsets t
 
 One of the goals of this version of the library is to lay the groundwork for making it more easily portable to a wide variety of platforms.  At the moment, the library has only been tested and is known to work with AVR and ARM based MCUs that are nominally arduino-compatable.  Namely, if the code is built/pushed using some variation of the Arduino application with stock compilers, the library should work.  Future versions of the library will support a wider range of platforms and compilers.  
 
-* [Arduino][ardprods] - Pretty much all the official arduino platforms should be supported at this point, including the Due (as of FastLED2.1).
+* [Arduino][ardprods] - Pretty much all the official arduino platforms should be supported at this point, including the Due (as of FastLED2.1) and the Yún (as of FastLED 3.0.3).
 * [Adafruit Flora/Gemma][adaflora] & [Trinket][adatrinket] - ATtiny based chipsets for wearable projects
 * [PJRC Teensy 2 & 3][pjrcteensy] - avr and arm based project boards from PJRC, arduino comparable, but with a variety of extra goodies on them.  The teensy3 and teensy 3.1 is one of our favorite boards to dev against! The Teensy 3.1 is supported as of FastLED2.1 (currently still branched) 
 
