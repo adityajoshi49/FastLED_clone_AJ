@@ -16,4 +16,7 @@ This page collects up a few links to some of the most useful, most helpful, most
  * [Where to buy 'larger' quantities of LEDs]
 (https://plus.google.com/103458998373117296828/posts/bNrHBbjgysZ)  Pros and cons of eBay, AliExpress, and various specific suppliers.
 
+ * [Which 'library' is smaller, FastLED or Adafruit Neopixel?]
+(https://plus.google.com/112916219338292742137/posts/6AUgfAKWVs5)  TL;DR: for many animations, using FastLED results in smaller code. 
+
 If you see a discussion that you think should be added here, please let us know!
