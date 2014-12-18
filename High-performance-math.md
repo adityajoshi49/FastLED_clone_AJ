@@ -109,7 +109,7 @@ Linear interpolation between two values, with the fraction between them expresse
  
 <h1 id="sin">Trig Functions</h1>
 
-The library also has fast 16bit sin/cos functions.  The input is an "angle" from 0-65535, and the output is a singed 16 bit number from -32767 to 32767:
+The library also has fast 16bit sin/cos functions.  The input is an "angle" from 0-65535, and the output is a singed 16 bit number from -32767 to 32767.  The 8bit versions take an input "angle" from 0-255, and the output is a signed 8 bit number from -127 to 127:
 
 ```
     sin16(x);
