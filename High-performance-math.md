@@ -114,4 +114,6 @@ The library also has fast 16bit sin/cos functions.  The input is an "angle" from
 ```
     sin16(x);
     cos16(x);
+    sin8(x);
+    cos8(x);
 ```
