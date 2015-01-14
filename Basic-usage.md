@@ -32,6 +32,32 @@ This sets up an array that we can manipulate to set/clear led data.  Now, let's 
 
 This tells the library that there's a strand of NEOPIXEL's on pin 6 (remember, the value that DATA_PIN was set to), and those leds will use the led array ```leds```, and there are NUM_PIXELS (aka 60) of them.
 
+For four wire chipsets you have a couple of options.  If you are using the hardware SPI pins for the device that you're building for, then you don't even have to specify the pins:
+
+```
+    void setup() { 
+        FastLED.addLeds<APA102>(leds, NUM_LEDS);
+    }
+```
+
+If you are specifying your own pins, you have to specify a clock and a data pin:
+
+```
+    void setup() { 
+      FastLED.addLeds<APA102, CLOCK_PIN, DATA_PIN>(leds, NUM_LEDS);
+    }
+```
+
+Finally, sometimes you may want to change the data rate that you are running your leds at.  In this case, you'll also need to specify the RGB ordering:
+
+```
+    void setup() { 
+        FastLED.addLeds<APA102, RGB, DATA_RATE_MHZ(12)>(leds, NUM_LEDS);
+    }
+```
+
+The above example tells the library to run the APA102's at a 12Mhz data rate instead of the 24Mhz data rate that it will prefer to try for.  
+
 ## Writing an led
 
 Making your leds actually show colors is a two part process with this library.  First, you set the values of the entries in the ```leds``` array to whatever colors you want.  Then you tell the library to show your data.  Your animation/code/patterns will pretty much consist of this cycle.  Decide what you want everything to display, set it, then tell the led strip to display it.  Let's do something very simple, and set the first led to red:
