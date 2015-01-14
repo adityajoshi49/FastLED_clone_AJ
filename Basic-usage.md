@@ -44,7 +44,7 @@ If you are specifying your own pins, you have to specify a clock and a data pin:
 
 ```
     void setup() { 
-      FastLED.addLeds<APA102, CLOCK_PIN, DATA_PIN>(leds, NUM_LEDS);
+      FastLED.addLeds<APA102, DATA_PIN, CLOCK_PIN>(leds, NUM_LEDS);
     }
 ```
 
@@ -53,6 +53,12 @@ Finally, sometimes you may want to change the data rate that you are running you
 ```
     void setup() { 
         FastLED.addLeds<APA102, RGB, DATA_RATE_MHZ(12)>(leds, NUM_LEDS);
+    }
+```
+or
+```
+    void setup() { 
+        FastLED.addLeds<APA102, DATA_PIN, CLOCK_PIN, RGB, DATA_RATE_MHZ(12)>(leds, NUM_LEDS);
     }
 ```
 
