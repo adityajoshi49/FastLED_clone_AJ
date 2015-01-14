@@ -2,9 +2,10 @@ Here's a list of the chipsets that are currently supported by the library as wel
 
 ### Current, supported hotness
 
+* * APA102 - (adafruit sells these as dotstars) Fast data rate (I've pushed as fast as 24Mhz), stupid high refresh rate.  I'd recommend these over just about anything else at this point.
 * ws2811/ws2812/ws2812B - (adafruit sells these as "neopixels") super cheap (30 leds/m for $6, 60 leds/m for $11!), very slow data rate (800Kbps - meaning you'd want to investigate parallel output for more than a few hundred leds - see paul's excellent OctoWS2811 if you're using a teensy 3 - and i'm currently working on code for FastLED that will allow grouping/blocking of multiple streams of output in parallel - hopefully that will be out some time this year - I had an installation going in on july 4th that used it :).  Also - many of the strips are 1 led, 1 controller, so you can cut at every led.  Even better, is the ws2812 variant, which is the led and chip in a single package (some people still sell these as ws2811 - but the protocol is the same) - so it can be very very compact.
 * lpd8806's - less cheap (closer to $16/meter shipped for 48/m), but super fast (i've pushed them at upwards of 22Mbps!).  Also, they're paired, so it's one controller per 2 rgb pixels.  Note that these only really display 7 bits per channel, not 8, so they can really only display 128 different levels of light for each color channel.  Programming API is still 8 bits, but the low bit is meaningless.
-* P9813 - This is the chipset used in Cool Neon's Total Control Lighting.  Currently in the FastLED2.1 preview
+* P9813 - This is the chipset used in Cool Neon's Total Control Lighting.  
 
 ### Older, still supported, lukewarm
 
@@ -19,7 +20,6 @@ Here's a list of the chipsets that are currently supported by the library as wel
 * GW6205 - someone asked for these, I haven't ever seen them in person!
 * LPD1886 - a 3 wire chipset that is 12-bits per pixel instead of the usually 7/8-bit per pixel most of the other chipsets seen are so far
 * DMX controllers - if your'e controlling your leds using DMX from an arduino, this will drive DMX using the rest of the led library
-* APA102 - I need to do more work with this one, but this may become the goto chip over the WS2811!
 
 ### Upcoming
 
@@ -34,6 +34,7 @@ Here's a chart listing the various chipsets and pieces of data that we know abou
 
 | Chipset | Supported | Wires | Color Bits | Data Rate | PWM Rate | Chipset Power Draw 
 |---------|-----------|-------|------------|---------------|----------|--------------------
+| APA102 | √ | 4 | 8 | ~24Mbps | 20khz | ? 
 | WS2811 | √ | 3 | 8 | 800kbps | 400Hz | 5mw / 1ma@5v 
 | WS2812B | √ | 3 | 8 | 800kbps | 400Hz | 5mw / 1ma@5v 
 | TM1809 | √ | 3 | 8 | 800kbps | 400Hz | 7.2mw / 0.6ma@12v 
@@ -46,7 +47,6 @@ Here's a chart listing the various chipsets and pieces of data that we know abou
 | SM16716 | √ | 4 | 8 | ? | ? | ? 
 | TM1829 | X | 3 | 8 |  1.6Mbps/800kbps | 7kHz | 6ma@12v 
 | TLS3001 | X | ? | 12 | ? | ? | ? 
-| APA102 | X | ? | ? | ? | ? | ? 
 | TLC5940 | X | 4 | 12 | ? | ? | ? 
 | TLC5947 | X | 4 | 12 | ? | ? | ? 
 | LPD1886 | X | 3 | 12 | ? | ? | ? 
