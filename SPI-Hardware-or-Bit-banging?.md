@@ -22,8 +22,10 @@ Of course, the question then becomes, "What pins are hardware SPI pins?"  Here's
   * Hardware SPI - data 16, clock 15 (on the ISCP header on arduino provided boards)
 * Teensy++ 2:
   * Hardware SPI - data 22, clock 21
+  * USART SPI - data 3, clock 5
 * Teensy 2:
   * Hardware SPI - data 2, clock 1
+  * USART SPI - data 8, clock 23
 * Arduino ATMega1280/2560 based boards:
   * Hardware SPI - data 51, clock 53 
 * Teensy 3/3.1:
