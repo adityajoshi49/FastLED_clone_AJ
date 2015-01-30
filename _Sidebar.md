@@ -13,7 +13,7 @@
   * [[FastLED Design]]
   * [[FastLED Color Correction]]
   * [[FastLED Temporal Dithering]]
-  * [[SPI Hardware or Bit banging?]]
+  * [[SPI Hardware or Bit banging]]
 * [[Examples]]
   * [[RGB Calibration]]
   * [[Multiple Controller Examples]]
