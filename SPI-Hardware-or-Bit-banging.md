@@ -39,3 +39,12 @@ Of course, the question then becomes, "What pins are hardware SPI pins?"  Here's
 You will notice that on Atmega328p based boards the library supports using the USART in SPI mode as well.  You will also notice that this is not available on the other arduino boards.  This is because the arduino folks, in their infinite wisdom, decided to wire the XCK line to an led, rather than anything that you can get at.  So, no USART based SPI for you there.
 
 It is possible that I can use the USARTs on the Teensy 3/3.1 and Arduino Due for SPI as well.  This will come in future revisions of the library if so.
+
+### What about the other SPI/USART pins ###
+
+On most devices, the SPI hardware wants four pins - data in, data out, clock, and a select line.  While writing led data only uses the data out and clock pins, on some platforms using the SPI hardware disables the use of the other pins:
+
+* Teensy 3/3.1: Will disable the use of the MISO pin while writing led data, but will enable it again afterwards. 
+* Hardware SPI on AVR based devices: Will disable the use of the MISO and SELECT pins while writing led data, but will enable it again afterwards
+* UART in SPI mode on AVR based devices: The RX pin may or may not be available (needs further testing).  Note that if you use the UART in SPI mode for leds, you will not be able to use the UART as a UART for other purposes.  Note that using Serial for printing uses the UART on the Atmega328p.
+* Hardware SPI on the arduino DUE: The MISO pin will be unavailable for use
