@@ -6,7 +6,6 @@
   * [[Pixel Reference]]
   * [[FastLED HSV Colors]]
   * [[High Performance Math]]
-  * [[Low Level Access]]
   * [[Power Notes]]
   * [[FastLED Wave Functions]]
 * References
