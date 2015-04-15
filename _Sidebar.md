@@ -8,6 +8,7 @@
   * [[High Performance Math]]
   * [[Power Notes]]
   * [[FastLED Wave Functions]]
+  * [[Platform limitations]]
 * References
   * [[FastLED Design]]
   * [[FastLED Color Correction]]
