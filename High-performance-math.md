@@ -1,4 +1,4 @@
-* [[Saturating math|#saturating]]
+* [Saturating math](#saturating)
 * [Scaling](#scaling)
 * [Fast Random Numbers](#random)
 * [Easing/Linear Interpolation](#easing)
