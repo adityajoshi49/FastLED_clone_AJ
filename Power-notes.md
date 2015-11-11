@@ -19,3 +19,23 @@ Here are a few devices that can be used to measure the current drawn from a USB 
   * USB power meter with V/A switch ($15-$20?): http://dx.com/p/245604, http://www.amazon.com/Micro-SATA-Cables-Voltage-Current/dp/B005Z1E3IY/,  http://www.amazon.com/PortaPow-Monitor-Multimeter-Ammeter-Chargers/dp/B00DF2485S/, etc.
   * "Charger Doctor" (<$10) http://dx.com/p/235090
   * "Port Pilot PRO" ($75?) http://www.portpilot.net/ and make sure to look for the fancier "Port Pilot PRO", not the regular "Port Pilot [non-pro]"
+
+# Managing power in FastLED 
+
+_(introduced in FastLED3.1.1)_
+
+FastLED allows you to cap the power usage of your leds.  There's two ways to set the max power draw you want.  The first is by specifying the voltage your leds will be running at and the maximum milliamps you want to draw:
+
+```
+   // limit my draw to 1A at 5v of power draw
+   FastLED.setMaxPowerInVoltsAndMilliamps(5,1000); 
+```
+
+The other is to specify the maximum draw you want in watts:
+
+```
+   // limit my draw to 5W
+   FastLED.setMaxPowerInMilliWatts(5000);
+```
+
+Note that at the moment the power management functions are assuming standard(ish) 5v LEDs.  We will be looking to extend this in the future to account for 12v leds, or 5v leds that may have different power draws than the 5050 based stuff that most folks are using today.
