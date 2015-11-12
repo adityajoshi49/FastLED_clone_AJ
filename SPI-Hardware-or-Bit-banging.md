@@ -54,3 +54,20 @@ On most devices, the SPI hardware wants four pins - data in, data out, clock, an
 * Hardware SPI on AVR based devices: Will disable the use of the MISO and SELECT pins while writing led data, but will enable it again afterwards
 * UART in SPI mode on AVR based devices: The RX pin may or may not be available (needs further testing).  Note that if you use the UART in SPI mode for leds, you will not be able to use the UART as a UART for other purposes.  Note that using Serial for printing uses the UART on the Atmega328p.
 * Hardware SPI on the arduino DUE: The MISO pin will be unavailable for use
+
+### Getting four hardware SPI lines for the APA102 out of the Teensy 3.0/3.1 ###
+
+It is possible to get four hardware SPI outputs on the teensy 3.0/3.1, if you are driving APA102 (note: this hack won't work with most other SPI style led chipsets).  You can setup the lines like so:
+
+```
+CRGB leds[4][NUM_LEDS];
+
+...
+
+FastLED.addLeds<APA102,7,13>(leds[0],NUM_LEDS);
+FastLED.addLeds<APA102,7,14>(leds[1],NUM_LEDS);
+FastLED.addLeds<APA102,11,13>(leds[2],NUM_LEDS);
+FastLED.addLeds<APA102,11,14>(leds[3],NUM_LEDS);
+```
+
+Note that you will have two wires coming off of each of pins 7, 11, 13, and 14.  This (ab)uses the fact that when you're driving led data on pins 7/13 - the clock on pin 13 is strobing, and the data line on pin 7 is pushing out data.  The APA102 strip that is connected to 7/14 won't do anything while that's being written out because its clock line (14) isn't doing anything.  Ditto the strip connect to 11/13, because while it's clock line is going, the data line (11) is staying low, and APA102's data format requires 1's at the beginning of each LED's worth of data to start the frame.  This shuffle then repeats for the other 3 combinations of leds.
