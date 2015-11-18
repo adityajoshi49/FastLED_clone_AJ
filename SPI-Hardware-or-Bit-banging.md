@@ -57,7 +57,7 @@ On most devices, the SPI hardware wants four pins - data in, data out, clock, an
 
 ### Getting four hardware SPI lines for the APA102 out of the Teensy 3.0/3.1 ###
 
-It is possible to get four hardware SPI outputs on the teensy 3.0/3.1, if you are driving APA102 (note: this hack won't work with most other SPI style led chipsets).  You can setup the lines like so:
+It is possible to get four hardware SPI outputs on the teensy 3.0/3.1, if you are driving APA102 (note: this hack won't work with most other SPI style led chipsets - though it might with with LPD8806).  You can setup the lines like so:
 
 ```
 CRGB leds[4][NUM_LEDS];
