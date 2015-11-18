@@ -19,7 +19,8 @@ Here's a list of the chipsets that are currently supported by the library as wel
 * SM16716 - implemented because a couple people asked for it.  Terrible protocol.
 * GW6205 - someone asked for these, I haven't ever seen them in person!
 * LPD1886 - a 3 wire chipset that is 12-bits per pixel instead of the usually 7/8-bit per pixel most of the other chipsets seen are so far
-* DMX controllers - if your'e controlling your leds using DMX from an arduino, this will drive DMX using the rest of the led library
+* DMX controllers (DMXSIMPLE or DMXSERIAL) - if your'e controlling your leds using DMX from an arduino, this will drive DMX using the rest of the led library - note that you will need to ```#include <DmxSimple.h>``` or ```#include <DmxSerial.h>``` _before_ ```#include <FastLED.h>``` to use DMX output.
+* Adafruit Pixie leds (PIXIE) - http://www.adafruit.com/product/2741 - in order to use these leds you ```#include <SoftwareSerial.h>``` _before_ ```#include <FastLED.h>```.
 
 ### Upcoming
 
