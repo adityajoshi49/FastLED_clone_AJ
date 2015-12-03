@@ -10,7 +10,7 @@ Here's a list of the chipsets that are currently supported by the library as wel
 ### Older, still supported, lukewarm
 
 * ws2801 - older, cheap(ish) - but slow (1Mbps), i've found it prone to glitching at longer lengths, and higher data rates are right out.  
-* tm1809/1804 - similar in protocol to the ws8211, similar cost benefit when it was out, 1 IC per 3 rgb leds, seems to be a lot twiticher re: line interference (the 1809 controls 3 rgb pixels, the 1804 controls 1)
+* tm1809/1804/1812 - similar in protocol to the ws8211, similar cost benefit when it was out, 1 IC per 3 rgb leds, seems to be a lot twiticher re: line interference (the 1809 controls 3 rgb pixels, the 1804 controls 1)
 * tm1803 - slower speed version of the tm1809, sold primarily by radio shack 
 
 ### Other stuff
@@ -38,7 +38,7 @@ Here's a chart listing the various chipsets and pieces of data that we know abou
 | APA102 | √ | 4 | 8 | ~24Mbps | 20khz | ? 
 | WS2811 | √ | 3 | 8 | 800kbps | 400Hz | 5mw / 1ma@5v 
 | WS2812B | √ | 3 | 8 | 800kbps | 400Hz | 5mw / 1ma@5v 
-| TM1809 | √ | 3 | 8 | 800kbps | 400Hz | 7.2mw / 0.6ma@12v 
+| TM1809/TM1812 | √ | 3 | 8 | 800kbps | 400Hz | 7.2mw / 0.6ma@12v 
 | TM1803 | √ | 3 | 8 | 400kbps | 400Hz | 7.2mw / 0.6ma@12v 
 | TM1804 | √ | 3 | 8 | 800kbps | 400Hz | 7.2mw / 0.6ma@12v 
 | WS2801 | √ | 4 | 8 | 1Mbps | 2.5kHz | 60mw / 5ma@12v 
