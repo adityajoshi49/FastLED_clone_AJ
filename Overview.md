@@ -17,6 +17,8 @@ In addition, there is API level documentation at http://fastled.io/docs/3.1/modu
 The core of the library is providing support to a number of LED chipsets that are out there.  
 <h4 id="spichipsets">SPI Chipsets</h4>
 
+(See the [chipset reference] wiki page for a more complete list with more information on each chip)
+
 SPI based chipsets are usually 4 wires - data, clock, power, and ground.  The advantage to these led chipsets is they can be cheap, the SPI data protocol does well over distance, and with some chipsets, you can get really high data transfer rates.
 
 * [LPD8806][ada8806] - a workhorse of an SPI based chipset, allows for high speed writing of data (we've pushed over 20Mbps to these chips!).
@@ -25,6 +27,7 @@ SPI based chipsets are usually 4 wires - data, clock, power, and ground.  The ad
 * [Total Control Lighting][coolneon] - Also known as P9813, this is an SPI chipset that is starting to see more use.  (Support for this library has been written, just needs testing, now!)
 * APA102 - another SPI based chipset, looks promising, packaging similar to the WS2812, but potentially much higher data rates (w/FastLED2.1)
 
+[chipsetrefs]: https://github.com/FastLED/FastLED/wiki/Chipset-reference
 [ada8806]: http://www.adafruit.com/products/306 
 [adaws2801]: http://www.adafruit.com/index.php?main_page=adasearch&q=ws2801
 [coolneon]: http://shopping.netsuite.com/s.nl/c.ACCT88394/sc.2/category.1665/.f
@@ -36,7 +39,7 @@ Three wire led pixels are becoming quite popular.  Having only data, ground, and
 * [Neopixel][adaneopixel] - Aka the WS2811 (or WS2812, or WS2812B), these seem to be the rgb leds of choice for many people right now.
 * TM1809/TM1804 - A common chipset for a while on aliexpress, has a similar protocol to the WS2811 and friends.
 * TM1803 - Sold by radio shack
-* UCS1903/UCS1903B - Another 3 wire chipset, slower data protocol than the others, which were already slow.  Not terribly common.
+* UCS1903/UCS1903B/UCS1904/UCS2903 - Another 3 wire chipset, slower data protocol than the others, which were already slow.  Not terribly common.
 * GW6205 (w/FastLED2.1)
 * LPD1886 - a 3 wire chipset that is 12-bits per pixel instead of the usually 7/8-bit per pixel most of the other chipsets seen are so far (w/FastLED2.1)
 
