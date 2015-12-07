@@ -16,6 +16,7 @@ Here's a list of the chipsets that are currently supported by the library as wel
 ### Other stuff
 
 * UCS1903 - similar to tm1809/ws2811.  Not sure why this exists, honestly.  Very very slow protocol, closer to 400kbps.
+* UCS1904/2903 - closer in timing to the ws2811.  Some folks find it interesting
 * SM16716 - implemented because a couple people asked for it.  Terrible protocol.
 * GW6205 - someone asked for these, I haven't ever seen them in person!
 * LPD1886 - a 3 wire chipset that is 12-bits per pixel instead of the usually 7/8-bit per pixel most of the other chipsets seen are so far
@@ -43,6 +44,7 @@ Here's a chart listing the various chipsets and pieces of data that we know abou
 | TM1804 | √ | 3 | 8 | 800kbps | 400Hz | 7.2mw / 0.6ma@12v 
 | WS2801 | √ | 4 | 8 | 1Mbps | 2.5kHz | 60mw / 5ma@12v 
 | UCS1903 | √ | 3 | 8 | 400kbps | unknown | ? 
+| UCS2903 | √ | 3 | 8 | 800kbps | unknown | ? 
 | LPD8806 | √ | 4 | 7 | 1-20Mbps | 4kHz | ? 
 | P9813 | √ | 4 | 8 | 1-15Mbps | 4.5kHz | ? 
 | SM16716 | √ | 4 | 8 | ? | ? | ? 
