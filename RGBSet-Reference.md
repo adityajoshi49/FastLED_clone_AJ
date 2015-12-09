@@ -31,8 +31,8 @@ If you could do it to an individual pixel before, you can do it to a set of pixe
 ```
 #include <FastLED.h>
 #define NUM_LEDS 40
-CRGB rawleds[NUM_LEDS];
-CRGBSet leds(rawleds, NUM_LEDS);
+
+CRGBArray<NUM_LEDS> leds;
 
 void setup() { FastLED.addLeds<APA102>(leds, NUM_LEDS); }
 void loop() { static uint8_t hue=0; leds.fill_rainbow(hue++); FastLED.delay(30); }
@@ -47,6 +47,19 @@ void loop() {
   leds(NUM_LEDS/2, NUM_LEDS-1) = leds(NUM_LEDS/2-1,0);
   FastLED.delay(30);
 }
+```
+
+```CRGBSet``` is a _reference_ object.  It doesn't have any actual pixel data of its own, rather, it's a reference to some set of other pixel data.  How do you get other pixel data in there?  There's a couple of ways.  The first is you can have a pointer to CRGB objects or an array of CRGB objects that you then use to make your initial set out of.  For example:
+
+```
+CRGB *realleds[NUM_LEDS];
+CRGBSet leds(realleds, NUM_LEDS);
+```
+
+This creates an RGBSet that references the array of real leds.  Or, alternatively (and preferably, going forward), you can use a type of RGBSet called ```CRGBArray``` - which is an RGBSet that has its own set of pixel data:
+
+```
+CRGBArray<NUM_LEDS> leds;
 ```
 
 This is a work in progress - you can see some more ideas on things you do on the g+ post here - https://plus.google.com/102282558639672545743/posts/a3VeZVhRnqG - and I will try to update this page with more documentation and examples as I work on/expand this functionality.
