@@ -77,7 +77,7 @@ leds(0,9).fadeToBlackBy(40);
 If you are using an environment/compiler that supports C++11 (Arduino 1.6.6 for some platforms) you can even use the new ranged for loop to iterate over your pixels:
 
 ```
-for(CRGB & pixel : leds) { pixel = CHSV(hue++,255,255;); }
+for(CRGB & pixel : leds) { pixel = CHSV(hue++,255,255); }
 ```
 
 or you could just do something to a subset of your pixels:
