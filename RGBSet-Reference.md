@@ -62,4 +62,30 @@ This creates an RGBSet that references the array of real leds.  Or, alternativel
 CRGBArray<NUM_LEDS> leds;
 ```
 
+Now you can do things on all of your leds - or a subset of leds, quite easily.  For example, you could fade all the leds to black:
+
+```
+leds.fadeToBlackBy(40);
+```
+
+or you could just do a subset:
+
+```
+leds(0,9).fadeToBlackBy(40);
+```
+
+If you are using an environment/compiler that supports C++11 (Arduino 1.6.6 for some platforms) you can even use the new ranged for loop to iterate over your pixels:
+
+```
+for(CRGB & pixel : leds) { pixel = CHSV(hue++,255,255;); }
+```
+
+or you could just do something to a subset of your pixels:
+
+```
+for(CRGB & pixel : leds(8,10) { pixel = CRGB::Black; } 
+```
+
+(of course, the above is equivalent to just saying ```leds(8,10) = CRGB::Black;``` - but this is just to give the basic idea for how it could be used)
+
 This is a work in progress - you can see some more ideas on things you do on the g+ post here - https://plus.google.com/102282558639672545743/posts/a3VeZVhRnqG - and I will try to update this page with more documentation and examples as I work on/expand this functionality.
