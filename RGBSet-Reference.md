@@ -86,6 +86,11 @@ or you could just do something to a subset of your pixels:
 for(CRGB & pixel : leds(8,10) { pixel = CRGB::Black; } 
 ```
 
-(of course, the above is equivalent to just saying ```leds(8,10) = CRGB::Black;``` - but this is just to give the basic idea for how it could be used)
+(of course, the above is equivalent to just saying ```leds(8,10) = CRGB::Black;``` - but this is just to give the basic idea for how it could be used).  Note that in testing it is _faster_ to use this style of loop vs. the more traditional 
+
+```
+for(int i = 0; i < NUM_LEDS; i++) { leds[i] = CHSV(hue++,255,255); }
+```
+
 
 This is a work in progress - you can see some more ideas on things you do on the g+ post here - https://plus.google.com/102282558639672545743/posts/a3VeZVhRnqG - and I will try to update this page with more documentation and examples as I work on/expand this functionality.
