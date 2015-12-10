@@ -83,7 +83,7 @@ for(CRGB & pixel : leds) { pixel = CHSV(hue++,255,255); }
 or you could just do something to a subset of your pixels:
 
 ```
-for(CRGB & pixel : leds(8,10) { pixel = CRGB::Black; } 
+for(CRGB & pixel : leds(8,10)) { pixel = CRGB::Black; } 
 ```
 
 (of course, the above is equivalent to just saying ```leds(8,10) = CRGB::Black;``` - but this is just to give the basic idea for how it could be used).  Note that in testing it is _faster_ to use this style of loop vs. the more traditional 
@@ -92,5 +92,14 @@ for(CRGB & pixel : leds(8,10) { pixel = CRGB::Black; }
 for(int i = 0; i < NUM_LEDS; i++) { leds[i] = CHSV(hue++,255,255); }
 ```
 
+The loop overhead is reduced 10-20% when using CRGBSet iterators.
+
+What's that, you say?  Your compiler doesn't support C++11/14, and you want the faster loops?  Don't worry - it takes a little bit more code to do - but you can get them as well:
+
+```
+    for(CRGBSet::iterator pixel=ml.begin(), end=ml.end(); pixel != end; ++pixel) { (*pixel) = CRGB::Black; }
+```
+
+I know, it's a little uglier.  Get thee to C++11!
 
 This is a work in progress - you can see some more ideas on things you do on the g+ post here - https://plus.google.com/102282558639672545743/posts/a3VeZVhRnqG - and I will try to update this page with more documentation and examples as I work on/expand this functionality.
