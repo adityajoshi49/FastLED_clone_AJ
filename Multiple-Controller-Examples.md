@@ -187,3 +187,46 @@ void loop() {
   }
 }
 ```
+
+Managing your own output
+------------------------
+
+FastLED helpfully writes to all the leds strips every time you call show.  However, sometimes, that might not be what you want.  For example, you may want to split leds over multiple lines to conserve memory.  In this case, you can sidestep fastled's automatic display (at the cost of easy global brightness management).  Here's a quick example:
+
+```C++
+#include "FastLED.h"
+
+#define NUM_LEDS_PER_STRIP 80
+#define NUM_STRIPS 4;
+
+CRGB leds[NUM_LEDS_PER_STRIP];
+CLEDController *controllers[NUM_STRIPS];
+uint8_t gBrightness = 128;
+
+void setup() { 
+  controllers[0] = &FastLED.addLeds<WS2812,1>(leds, NUM_LEDS_PER_STRIP);
+  controllers[1] = &FastLED.addLeds<WS2812,2>(leds, NUM_LEDS_PER_STRIP);
+  controllers[2] = &FastLED.addLeds<WS2812,10>(leds, NUM_LEDS_PER_STRIP);
+  controllers[3] = &FastLED.addLeds<WS2812,11>(leds, NUM_LEDS_PER_STRIP);
+}
+
+void loop() { 
+  // draw led data for the first strand into leds
+  fill_solid(leds, CRGB::Red);
+  controllers[0]->show(gBrightness);
+
+  // draw led data for the second strand into leds
+  fill_solid(leds, CRGB::Greem);
+  controllers[1]->show(gBrightness);
+
+  // draw led data for the third strand into leds
+  fill_solid(leds, CRGB::Blue);
+  controllers[2]->show(gBrightness);
+
+  // draw led data for the first strand into leds
+  fill_solid(leds, CRGB::White);
+  controllers[3]->show(gBrightness);
+}
+```
+
+Now you can write led data one strip/pin at a time.  
