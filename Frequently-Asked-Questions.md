@@ -12,12 +12,10 @@ FastLED is a large, complex library.  It is closer to a framework than a simple 
 
 * Be complete!  Describe what is going on.  "It doesn't work" isn't helpful.  "The first 10 leds light up, but the remaining 30 don't" is better.
 * Did we mention details?  Please also include:
-
-** The version of the arduino IDE you are using (and what OS you're using)
-** The version of FastLED you are using
-** The LED chipset you are using
-** What hardware you are building for
-
+  * The version of the arduino IDE you are using (and what OS you're using)
+  * The version of FastLED you are using
+  * The LED chipset you are using
+  * What hardware you are building for
 * Providing a link to your code will get some of the quickest help, as we don't have to guess at how you're trying to do what you're doing.  Please upload your code [gist](http://gist.github.com) so we can read it (code in G+ posts gets unreadable very quickly).
 
 #### 1. I'm losing serial data when I call FastLED.show(), why?
