@@ -1,3 +1,13 @@
+#### 0. Is there documentation?  Where can I get help?
+
+FastLED is a large, complex library.  It is closer to a framework than a simple library like most Arduino libraries you may be used to using so far.  Documentation and explanation of what the library can do, and how to do complex things with it is an ongoing project/process for us.  However, there are lots of pieces in place:
+
+* [This wiki](http://fastled.io/wiki) - read through the pages on the sidebar here, there's a lot of information in there!
+* [API Documentation](http://fastled.io/docs/3.1/index.html) - doxygen generated API documentation for the library.  This is more reference than how-to, and is continually being updated/expanded
+* [The examples](https://github.com/FastLED/FastLED/tree/master/examples) - FastLED has many examples to show off how to do things in the library.  These are also continually expanding.
+* [The G+ Group](http://fastled.io/+) - FastLED has a large community of active users, many of whom are quite helpful.  The community is open to people of all levels, and we've helped with everything from basics of programming to hardware design, as well as using FastLED.  Google recently broke searching in communities, but if you want to search the FastLED community, [start here](https://plus.google.com/s/FastLED/top), and add what you want to search for to the search bar at top.
+* [The FastLED chatroom](http://fastled.io/chat) - the chat room is a place where some random conversation about FastLED occurs.  
+
 #### 1. I'm losing serial data when I call FastLED.show(), why?
 
 Short version - you're running into problems with interrupts.  Long version - see the [[Interrupt problems]] wiki page.
