@@ -21,3 +21,11 @@ Likewise, if you are using a 4-wire chipset like the APA102, if you have connect
 #### 4b. I've corrected my wiring but now nothing lights up!
 
 For some LED chipsets, if you accidentally wire ground and power backwards, or if you apply power to DIN, you will blow out the led.  _*You have not destroyed your entire strip of leds*_.  Luckily, you've most likely only damaged the first led in the chain, and you can cut it out and re-connect your wiring to the second led and continue using the rest of the leds.
+
+#### 5. With APA102 leds, my wiring is right, but my leds are flickering.  (Or my leds start flickering somewhere down the line).
+
+APA102 leds allow for high data rates.  I've driven them at 24Mhz+ for nearly 1000 leds.  However, for some reason, some ways of manufacturing APA102 strips have problems with high data rates when the strip is long.  If this happens, you can try slowing down the data rate that FastLED uses to write out APA102 data.  Often, setting it to 12Mhz or 10Mhz works:
+
+```
+FastLED.addLeds<APA102,7,11,RGB,DATA_RATE_MHZ(10)>(leds,NUM_LEDS);
+```
