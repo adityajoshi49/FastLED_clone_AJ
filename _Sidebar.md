@@ -1,4 +1,5 @@
 * [[Documentation]]
+  * [[Frequently Asked Questions]]
   * [[Overview]]
   * [[Wiring LEDs]]
   * [[Basic Usage]]
