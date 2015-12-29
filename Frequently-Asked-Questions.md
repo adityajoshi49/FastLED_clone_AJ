@@ -39,3 +39,12 @@ APA102 leds allow for high data rates.  I've driven them at 24Mhz+ for nearly 10
 ```
 FastLED.addLeds<APA102,7,11,RGB,DATA_RATE_MHZ(10)>(leds,NUM_LEDS);
 ```
+
+#### 6. Why doesn't FastLED support this random led chipset or that random MCU?
+
+There's a couple possible reasons why FastLED may not support a particular LED chipset or run on a particular MCU:
+
+* Time - this is actually the most likely reason.  FastLED's primary developers have full time jobs, as well as fairly full plates of led work (personal art, contract development, ongoing FastLED development).  This means the list of things we want to do is growing faster than our ability to work on things.
+* Awareness - sometimes we just aren't aware of a new LED chipset or MCU yet.  Feel free to [open an issue](https://github.com/FastLED/FastLED/issues/new) to put something on our radar.
+* Technical - some LED chipsets we have made a decision to not directly support in the library.  Primarily this includes any LED chipset that requires interrupts/timers to properly manage/control (HL1606, LPD6803).  FastLED supports multiple AVR variants, as well as nearly a half dozen arm architectures (with a couple architectures that are neither ARM or AVR on the horizon as well) - each of which do interrupts and timers slightly differently.  Likewise, with some MCU architectures we've made a decision to not support because of either time (msp430, for example) or because we don't feel the platform is a useful platform to try to optimize FastLED for (PIC).
+
