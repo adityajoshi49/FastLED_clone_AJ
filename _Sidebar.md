@@ -10,6 +10,7 @@
   * [[Power Notes]]
   * [[FastLED Wave Functions]]
   * [[Platform limitations]]
+  * [[Interrupt problems]]
 * References
   * [[FastLED Design]]
   * [[FastLED Color Correction]]
