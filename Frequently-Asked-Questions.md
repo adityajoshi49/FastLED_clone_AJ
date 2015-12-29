@@ -8,6 +8,16 @@ FastLED is a large, complex library.  It is closer to a framework than a simple 
 * [The G+ Group](http://fastled.io/+) - FastLED has a large community of active users, many of whom are quite helpful.  The community is open to people of all levels, and we've helped with everything from basics of programming to hardware design, as well as using FastLED.  Google recently broke searching in communities, but if you want to search the FastLED community, [start here](https://plus.google.com/s/FastLED/top), and add what you want to search for to the search bar at top.
 * [The FastLED chatroom](http://fastled.io/chat) - the chat room is a place where some random conversation about FastLED occurs.  
 
+#### 0a. Guidelines for asking for help on the G+ group
+
+* Be complete!  Describe what is going on.  "It doesn't work" isn't helpful.  "The first 10 leds light up, but the remaining 30 don't" is better.
+* Did we mention details?  Please also include:
+** The version of the arduino IDE you are using (and what OS you're using)
+** The version of FastLED you are using
+** The LED chipset you are using
+** What hardware you are building for
+* Providing a link to your code will get some of the quickest help, as we don't have to guess at how you're trying to do what you're doing.  Please upload your code [gist](http://gist.github.com) so we can read it (code in G+ posts gets unreadable very quickly).
+
 #### 1. I'm losing serial data when I call FastLED.show(), why?
 
 Short version - you're running into problems with interrupts.  Long version - see the [[Interrupt problems]] wiki page.
