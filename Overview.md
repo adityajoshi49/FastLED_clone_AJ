@@ -70,7 +70,13 @@ One of the goals of this version of the library is to lay the groundwork for mak
 * [Adafruit Flora/Gemma][adaflora] & [Trinket][adatrinket] - ATtiny based chipsets for wearable projects
 * [PJRC Teensy 2 & 3][pjrcteensy] - avr and arm based project boards from PJRC, arduino comparable, but with a variety of extra goodies on them.  The teensy3 and teensy 3.1 is one of our favorite boards to dev against! The Teensy LC is supported as of FastLED 3.1
 * RFDuino (as of FastLED 3.1)
-* SparkCOre
+* SparkCore and Photon 
+
+Some upcoming platforms:
+
+* LPC8XX - this port is mostly done, it needs some polish (and unwinding from a contract job) to put in the library
+* ESP8266 - soon
+* NRF52 - M4F with bluetooth on board - the 51822's bigger sibling!
 
 [ardprods]: http://arduino.cc/en/Main/Products
 [adaflora]: http://www.adafruit.com/category/92
