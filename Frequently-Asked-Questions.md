@@ -17,6 +17,7 @@ FastLED is a large, complex library.  It is closer to a framework than a simple 
   * The LED chipset you are using
   * What hardware you are building for
 * Providing a link to your code will get some of the quickest help, as we don't have to guess at how you're trying to do what you're doing.  Please upload your code [gist](http://gist.github.com) so we can read it (code in G+ posts gets unreadable very quickly).
+* [More on asking good questions](http://stackoverflow.com/help/how-to-ask) and [making examples](http://stackoverflow.com/help/mcve)
 
 #### 1. I'm losing serial data when I call FastLED.show(), why?
 
@@ -57,4 +58,3 @@ There's a couple possible reasons why FastLED may not support a particular LED c
 * Time - this is actually the most likely reason.  FastLED's primary developers have full time jobs, as well as fairly full plates of led work (personal art, contract development, ongoing FastLED development).  This means the list of things we want to do is growing faster than our ability to work on things.
 * Awareness - sometimes we just aren't aware of a new LED chipset or MCU yet.  Feel free to [open an issue](https://github.com/FastLED/FastLED/issues/new) to put something on our radar.
 * Technical - some LED chipsets we have made a decision to not directly support in the library.  Primarily this includes any LED chipset that requires interrupts/timers to properly manage/control (HL1606, LPD6803).  FastLED supports multiple AVR variants, as well as nearly a half dozen arm architectures (with a couple architectures that are neither ARM or AVR on the horizon as well) - each of which do interrupts and timers slightly differently.  Likewise, with some MCU architectures we've made a decision to not support because of either time (msp430, for example) or because we don't feel the platform is a useful platform to try to optimize FastLED for (PIC).
-
