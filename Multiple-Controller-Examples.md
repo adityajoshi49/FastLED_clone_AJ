@@ -213,19 +213,19 @@ void setup() {
 void loop() { 
   // draw led data for the first strand into leds
   fill_solid(leds, CRGB::Red);
-  controllers[0]->show(gBrightness);
+  controllers[0]->showLeds(gBrightness);
 
   // draw led data for the second strand into leds
   fill_solid(leds, CRGB::Greem);
-  controllers[1]->show(gBrightness);
+  controllers[1]->showLeds(gBrightness);
 
   // draw led data for the third strand into leds
   fill_solid(leds, CRGB::Blue);
-  controllers[2]->show(gBrightness);
+  controllers[2]->showLeds(gBrightness);
 
   // draw led data for the first strand into leds
   fill_solid(leds, CRGB::White);
-  controllers[3]->show(gBrightness);
+  controllers[3]->showLeds(gBrightness);
 }
 ```
 
