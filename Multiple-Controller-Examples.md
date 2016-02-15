@@ -216,7 +216,7 @@ void loop() {
   controllers[0]->showLeds(gBrightness);
 
   // draw led data for the second strand into leds
-  fill_solid(leds, NUM_LEDS, CRGB::Greem);
+  fill_solid(leds, NUM_LEDS, CRGB::Green);
   controllers[1]->showLeds(gBrightness);
 
   // draw led data for the third strand into leds
