@@ -196,10 +196,10 @@ FastLED helpfully writes to all the leds strips every time you call show.  Howev
 ```C++
 #include "FastLED.h"
 
-#define NUM_LEDS_PER_STRIP 80
+#define NUM_LEDS 80
 #define NUM_STRIPS 4
 
-CRGB leds[NUM_LEDS_PER_STRIP];
+CRGB leds[NUM_LEDS];
 CLEDController *controllers[NUM_STRIPS];
 uint8_t gBrightness = 128;
 
