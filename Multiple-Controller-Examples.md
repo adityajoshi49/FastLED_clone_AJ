@@ -204,10 +204,10 @@ CLEDController *controllers[NUM_STRIPS];
 uint8_t gBrightness = 128;
 
 void setup() { 
-  controllers[0] = &FastLED.addLeds<WS2812,1>(leds, NUM_LEDS_PER_STRIP);
-  controllers[1] = &FastLED.addLeds<WS2812,2>(leds, NUM_LEDS_PER_STRIP);
-  controllers[2] = &FastLED.addLeds<WS2812,10>(leds, NUM_LEDS_PER_STRIP);
-  controllers[3] = &FastLED.addLeds<WS2812,11>(leds, NUM_LEDS_PER_STRIP);
+  controllers[0] = &FastLED.addLeds<WS2812,1>(leds, NUM_LEDS);
+  controllers[1] = &FastLED.addLeds<WS2812,2>(leds, NUM_LEDS);
+  controllers[2] = &FastLED.addLeds<WS2812,10>(leds, NUM_LEDS);
+  controllers[3] = &FastLED.addLeds<WS2812,11>(leds, NUM_LEDS);
 }
 
 void loop() { 
