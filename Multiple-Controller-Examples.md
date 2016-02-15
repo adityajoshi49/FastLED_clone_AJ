@@ -197,7 +197,7 @@ FastLED helpfully writes to all the leds strips every time you call show.  Howev
 #include "FastLED.h"
 
 #define NUM_LEDS_PER_STRIP 80
-#define NUM_STRIPS 4;
+#define NUM_STRIPS 4
 
 CRGB leds[NUM_LEDS_PER_STRIP];
 CLEDController *controllers[NUM_STRIPS];
@@ -212,19 +212,19 @@ void setup() {
 
 void loop() { 
   // draw led data for the first strand into leds
-  fill_solid(leds, CRGB::Red);
+  fill_solid(leds, NUM_LEDS, CRGB::Red);
   controllers[0]->showLeds(gBrightness);
 
   // draw led data for the second strand into leds
-  fill_solid(leds, CRGB::Greem);
+  fill_solid(leds, NUM_LEDS, CRGB::Greem);
   controllers[1]->showLeds(gBrightness);
 
   // draw led data for the third strand into leds
-  fill_solid(leds, CRGB::Blue);
+  fill_solid(leds, NUM_LEDS, CRGB::Blue);
   controllers[2]->showLeds(gBrightness);
 
   // draw led data for the first strand into leds
-  fill_solid(leds, CRGB::White);
+  fill_solid(leds, NUM_LEDS, CRGB::White);
   controllers[3]->showLeds(gBrightness);
 }
 ```
