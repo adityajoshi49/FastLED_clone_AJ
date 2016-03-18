@@ -36,7 +36,7 @@ Here's a chart listing the various chipsets and pieces of data that we know abou
 
 | Chipset | Supported | Wires | Color Bits | Data Rate | PWM Rate | Chipset Power Draw 
 |---------|-----------|-------|------------|---------------|----------|--------------------
-| APA102/DOTSTAR | √ | 4 | 8 | ~24Mbps | 20khz | ? 
+| APA102/DOTSTAR | √ | 4 | 8 | ~24Mbps | 20khz | 0.9ma@5v 
 | WS2811 | √ | 3 | 8 | 800kbps | 400Hz | 5mw / 1ma@5v 
 | WS2812B/NEOPIXEL | √ | 3 | 8 | 800kbps | 400Hz | 5mw / 1ma@5v 
 | TM1809/TM1812 | √ | 3 | 8 | 800kbps | 400Hz | 7.2mw / 0.6ma@12v 
