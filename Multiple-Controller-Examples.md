@@ -229,4 +229,41 @@ void loop() {
 }
 ```
 
-Now you can write led data one strip/pin at a time.  
+Now you can write led data one strip/pin at a time. 
+
+Or, alternatively (using some new pieces added recently to the FastLED object):
+
+```
+ #include "FastLED.h"
+
+#define NUM_LEDS 80
+#define NUM_STRIPS 4
+
+CRGB leds[NUM_LEDS];
+uint8_t gBrightness = 128;
+
+void setup() { 
+  FastLED.addLeds<WS2812,1>(leds, NUM_LEDS);
+  FastLED.addLeds<WS2812,2>(leds, NUM_LEDS);
+  FastLED.addLeds<WS2812,10>(leds, NUM_LEDS);
+  FastLED.addLeds<WS2812,11>(leds, NUM_LEDS);
+}
+
+void loop() { 
+  // draw led data for the first strand into leds
+  fill_solid(leds, NUM_LEDS, CRGB::Red);
+  FastLED[0].showLeds(gBrightness);
+
+  // draw led data for the second strand into leds
+  fill_solid(leds, NUM_LEDS, CRGB::Green);
+  FastLED[2].showLeds(gBrightness);
+
+  // draw led data for the third strand into leds
+  fill_solid(leds, NUM_LEDS, CRGB::Blue);
+  FastLED[3].showLeds(gBrightness);
+
+  // draw led data for the first strand into leds
+  fill_solid(leds, NUM_LEDS, CRGB::White);
+  FastLED[4].showLeds(gBrightness);
+}
+```
