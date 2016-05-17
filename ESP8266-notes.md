@@ -21,3 +21,7 @@ before you `#include <FastLED.h>` in your .ino file.
 The ESP8266 is a limited platform in some ways.  While, on paper, it has 17 GPIO pins, in reality, 6 of these are blocked off from use.  GPIO6, GPIO7, GPIO8, GPIO9, GPIO10, and GPIO11 are all unavailable to you.  These pins are not defined at all for `FASTLED_ESP8266_RAW_PIN_ORDER`, and the NodeMCU pin ordering already excludes these 6 pins from its list of available pins.
 
 In addition, if you are using Serial input/output at all, attempting to use GPIO1 for leds will cause the device to reset.  
+
+### misc
+
+On some boards, if you want to use GPIO15, you may need to follow the instructions here - http://www.instructables.com/id/ESP8266-Using-GPIO0-GPIO2-as-inputs/?ALLSTEPS
