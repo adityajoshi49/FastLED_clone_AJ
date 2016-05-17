@@ -12,6 +12,7 @@
   * [[FastLED Wave Functions]]
   * [[Platform limitations]]
   * [[Interrupt problems]]
+  * [[ESP8266 notes]]
 * References
   * [[FastLED Design]]
   * [[FastLED Color Correction]]
