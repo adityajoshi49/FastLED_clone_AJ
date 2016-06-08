@@ -21,6 +21,11 @@ On the due/digix (note: some pins aren't available on the due, which means anyth
 * WS2811_PORTC - pins 90, 91, 92, 93, 94, 95, 96, 97 (only available on the digix)
 * WS2811_PORTD - pins 25,26,27,28,14,15,29,11 (all available on the due)
 
+And on the ESP8266:
+
+* WS2811_PORTA - pins 12, 13, 14 and 15 (or pins 6,7,5 and 8 on the NodeMCU boards/pin layout).
+
+You can also replace WS2811 with WS2811_400, TM1803, and UCS1903 in the above.
 
 ## Making OctoWS2811 faster with FastLED
 
